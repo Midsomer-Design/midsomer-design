@@ -7,7 +7,7 @@
   <meta name="description" content="Midsomer Design builds beautiful, high-performing websites for small businesses — with no upfront cost. Just a simple monthly subscription." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -88,7 +88,7 @@
       font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: #fff;
       box-shadow: 0 3px 10px rgba(1,50,18,0.28);
     }
-    .nav-word { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 600; letter-spacing: 0.02em; color: var(--forest); }
+    .nav-word { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 600; letter-spacing: 0.02em; color: var(--forest); transition: color 0.35s; }
     .nav-links { display: flex; gap: 1.9rem; align-items: center; }
     .nav-links a { position: relative; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.11em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; transition: color 0.2s; }
     .nav-links a:not(.nav-cta)::after {
@@ -104,6 +104,16 @@
       transition: background 0.25s, transform 0.2s var(--ease), box-shadow 0.25s;
     }
     .nav-cta:hover { background: var(--forest-mid) !important; transform: translateY(-1px); box-shadow: 0 8px 22px rgba(1,50,18,0.28); }
+    /* nav while it sits over the dark hero */
+    nav.on-dark { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+    nav.on-dark.scrolled { background: rgba(3,11,6,0.72); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom-color: rgba(255,255,255,0.08); box-shadow: none; }
+    nav.on-dark .nav-word { color: #fff; }
+    nav.on-dark .nav-mark { box-shadow: 0 0 0 1px rgba(255,255,255,0.2); }
+    nav.on-dark .nav-links a:not(.nav-cta) { color: rgba(255,255,255,0.75); }
+    nav.on-dark .nav-links a:not(.nav-cta):hover { color: #fff; }
+    nav.on-dark .nav-links a:not(.nav-cta)::after { background: #fff; }
+    nav.on-dark .nav-cta { background: #fff !important; color: var(--forest-deep) !important; box-shadow: none; }
+    nav.on-dark .nav-cta:hover { background: var(--mint-soft) !important; }
     #progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 0; background: linear-gradient(90deg, var(--forest), var(--accent-bright)); transition: width 0.1s linear; }
 
     /* BUTTONS */
@@ -119,63 +129,199 @@
     .btn-primary::after { content: '→'; font-size: 0.95rem; letter-spacing: 0; transition: transform 0.28s var(--ease); }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(1,50,18,0.3); filter: brightness(1.06); }
     .btn-primary:hover::after { transform: translateX(4px); }
+    .btn-light { background: #fff; color: var(--forest-deep); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    .btn-light:hover { background: var(--mint-soft); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
     .btn-ghost { color: var(--forest); font-size: 0.85rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid var(--forest); padding-bottom: 2px; transition: opacity 0.2s; }
     .btn-ghost:hover { opacity: 0.6; }
 
     /* HERO */
     .hero {
-      position: relative; min-height: 100vh; display: flex; align-items: center;
-      padding: 9rem clamp(1.2rem, 5vw, 3.5rem) 6rem;
-      background: var(--paper); overflow: hidden;
-    }
-    .hero::before {
-      content: ''; position: absolute; inset: 0; pointer-events: none;
+      position: relative; overflow: hidden; text-align: center; color: #fff;
+      padding: clamp(8rem, 17vh, 10.5rem) 0 clamp(3rem, 6vw, 4.5rem);
       background:
-        radial-gradient(60% 55% at 78% 34%, rgba(11,157,67,0.16), transparent 62%),
-        radial-gradient(50% 50% at 8% 88%, rgba(1,50,18,0.09), transparent 60%);
+        radial-gradient(60% 45% at 50% 0%, rgba(11,157,67,0.18), transparent 70%),
+        radial-gradient(50% 35% at 50% 80%, rgba(11,157,67,0.07), transparent 70%),
+        linear-gradient(180deg, #06170b 0%, #030a05 100%);
     }
-    .hero::after {
-      content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.5;
-      background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
-      background-size: 96px 96px;
-      -webkit-mask-image: radial-gradient(75% 65% at 50% 45%, #000, transparent 78%);
-      mask-image: radial-gradient(75% 65% at 50% 45%, #000, transparent 78%);
-    }
-    .hero-inner {
-      position: relative; z-index: 2; width: 100%; max-width: 1180px; margin: 0 auto;
-      display: grid; grid-template-columns: 1.02fr 0.98fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center;
-    }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 0.55rem;
-      font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600;
-      color: var(--forest); background: rgba(255,255,255,0.75); border: 1px solid var(--line);
-      padding: 0.45rem 1rem 0.45rem 0.8rem; border-radius: 999px; margin-bottom: 1.8rem;
-      box-shadow: var(--shadow-sm); backdrop-filter: blur(6px);
-    }
-    .hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-bright); box-shadow: 0 0 0 3px rgba(11,157,67,0.18); }
+    .hero-copy { position: relative; z-index: 2; max-width: 72rem; margin: 0 auto; padding: 0 clamp(1.2rem, 5vw, 3.5rem); }
     .hero-title {
-      font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.035em;
-      font-size: clamp(2.7rem, 5.1vw, 4.5rem); line-height: 1.03; color: var(--forest);
-      margin-bottom: 1.7rem;
+      font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.04em;
+      font-size: clamp(2.7rem, 5.4vw, 4.9rem); line-height: 1.03; color: #fff;
+      margin-bottom: 1.5rem; text-wrap: balance;
     }
-    .hero-title em { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; letter-spacing: -0.01em; color: var(--accent); }
-    .hero-sub { font-size: 1.06rem; line-height: 1.72; color: var(--ink-soft); font-weight: 300; margin-bottom: 2.4rem; max-width: 30rem; }
-    .hero-sub strong { color: var(--forest); font-weight: 600; }
-    .hero-actions { display: flex; gap: 1.4rem; align-items: center; flex-wrap: wrap; }
-    .hero-visual { position: relative; }
-    .hero-visual::before {
-      content: ''; position: absolute; left: 50%; top: 50%; width: 118%; aspect-ratio: 1;
-      transform: translate(-50%, -50%);
-      background: radial-gradient(circle, rgba(11,157,67,0.22), rgba(11,157,67,0.06) 45%, transparent 68%);
-      filter: blur(6px);
+    .hero-title em { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; letter-spacing: -0.01em; }
+    .hero-sub { font-size: 1.08rem; line-height: 1.7; color: rgba(255,255,255,0.7); font-weight: 300; max-width: 33rem; margin: 0 auto 2.3rem; text-wrap: pretty; }
+    .hero-sub strong { color: #fff; font-weight: 500; }
+    .hero-note { margin-top: 1.1rem; font-size: 0.8rem; letter-spacing: 0.03em; color: rgba(255,255,255,0.5); }
+
+    /* SHOWCASE — carousel of example sites in the hero */
+    .showcase { position: relative; z-index: 1; margin-top: clamp(3.5rem, 8vh, 5.5rem); }
+    .showcase-stage {
+      --card-w: clamp(300px, 56vw, 960px); --spread: 1.04;
+      position: relative; height: calc(var(--card-w) * 0.625);
+      perspective: 2400px; touch-action: pan-y; user-select: none; -webkit-user-select: none;
     }
-    .hero-visual img {
-      position: relative; width: 100%; height: auto; display: block;
-      filter: drop-shadow(0 30px 45px rgba(1,32,11,0.16));
-      animation: float 9s ease-in-out infinite;
+    .showcase-card {
+      --o: 0; --a: 0; --dim: 0;
+      position: absolute; top: 0; left: 50%; width: var(--card-w); aspect-ratio: 16 / 10;
+      margin-left: calc(var(--card-w) / -2);
+      border-radius: 14px; overflow: hidden; background: #111; cursor: pointer;
+      container-type: inline-size;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.07);
+      transform: translateX(calc(var(--o) * var(--card-w) * var(--spread))) translateZ(calc(var(--a) * var(--card-w) * -0.22)) rotateY(calc(var(--o) * 24deg));
+      transition: transform 0.9s var(--ease), opacity 0.6s ease;
+      will-change: transform;
     }
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-    @media (prefers-reduced-motion: reduce) { .hero-visual img { animation: none; } }
+    .showcase-card.is-active { cursor: default; }
+    .showcase-card::after { content: ''; position: absolute; inset: 0; background: #020604; opacity: var(--dim); transition: opacity 0.6s ease; pointer-events: none; }
+    .showcase-card img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .showcase-stage.is-instant .showcase-card, .showcase-stage.is-instant .showcase-card::after { transition: none; }
+    .showcase-controls { display: flex; align-items: center; justify-content: center; gap: 1.4rem; margin-top: 2.2rem; padding: 0 1.2rem; }
+    .showcase-btn {
+      width: 46px; height: 46px; flex-shrink: 0; border-radius: 50%; display: grid; place-items: center; cursor: pointer;
+      color: #fff; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.22);
+      transition: background 0.25s, border-color 0.25s, transform 0.25s var(--ease);
+    }
+    .showcase-btn svg { width: 18px; height: 18px; }
+    .showcase-btn:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.5); }
+    .showcase-btn:active { transform: scale(0.94); }
+    .showcase-btn:focus-visible { outline: 2px solid var(--mint); outline-offset: 3px; }
+    .showcase-caption { min-width: 15rem; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.85); }
+    .showcase-count { display: block; margin-top: 0.4rem; letter-spacing: 0.14em; color: rgba(255,255,255,0.42); }
+
+    /* Example-site mock-ups (placeholders). Everything is sized in em off the card width, so each one scales like a screenshot. */
+    .mock { position: absolute; inset: 0; display: flex; flex-direction: column; overflow: hidden; text-align: left; font-family: 'DM Sans', sans-serif; font-size: 1.5cqw; line-height: 1.35; }
+    .mk-nav { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 2em; padding: 1.3em 2.4em; font-size: 0.8em; flex-shrink: 0; }
+    .mk-links { display: flex; gap: 2.2em; }
+    .mk-btn { display: inline-block; padding: 0.75em 1.4em; border-radius: 999px; font-weight: 500; white-space: nowrap; }
+    .mk-eyebrow { font-size: 0.72em; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 1.4em; }
+    .mk-h { font-size: 4em; line-height: 1; letter-spacing: -0.02em; }
+    .mk-h em { font-style: italic; }
+    .mk-text { font-size: 0.95em; line-height: 1.6; max-width: 24em; }
+    .mk-ph { position: relative; overflow: hidden; }
+    .mk-ph > svg { position: absolute; left: 50%; top: 50%; width: 20%; transform: translate(-50%, -50%); color: rgba(255,255,255,0.6); }
+
+    .m-cafe { background: #f3ece1; color: #3b2a1f; }
+    .m-cafe .mk-logo { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.6em; }
+    .m-cafe .mk-btn { background: #3b2a1f; color: #f3ece1; }
+    .m-cafe-body { flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr 1fr; }
+    .m-cafe-copy { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 1em 2.6em 3em 3.2em; }
+    .m-cafe .mk-eyebrow { color: #b0603a; }
+    .m-cafe .mk-h { font-family: 'Fraunces', serif; font-size: 3.6em; margin-bottom: 0.4em; }
+    .m-cafe .mk-h em { color: #b0603a; }
+    .m-cafe .mk-text { opacity: 0.75; margin-bottom: 2em; }
+    .m-cafe-copy .mk-btn { font-size: 0.9em; }
+    .m-cafe-ph { margin: 0 2.4em 2.4em 0; border-radius: 1em; background: radial-gradient(45% 40% at 60% 38%, rgba(255,236,208,0.55), transparent 70%), linear-gradient(165deg, #d9a676 0%, #a8683f 55%, #6e4127 100%); }
+    .m-cafe-chip { position: absolute; left: 1.4em; bottom: 1.4em; padding: 0.65em 1.1em; border-radius: 999px; background: #f3ece1; font-size: 0.75em; font-weight: 500; }
+
+    .m-rest { background: #16120f; color: #efe6d6; }
+    .m-rest .mk-nav { display: grid; grid-template-columns: 1fr auto 1fr; border-bottom: 1px solid rgba(239,230,214,0.12); }
+    .m-rest .mk-links { opacity: 0.7; }
+    .m-rest .mk-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5em; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; }
+    .m-rest .mk-nav .mk-btn { justify-self: end; border: 1px solid #d4b17a; color: #d4b17a; border-radius: 0; }
+    .m-rest-body { flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr 1fr; }
+    .m-rest-ph { background: radial-gradient(38% 38% at 50% 52%, #c98d4e 0%, #7a4a22 45%, transparent 75%), linear-gradient(160deg, #3a2616, #120d0a); }
+    .m-rest-ph::before { content: ''; position: absolute; left: 50%; top: 52%; width: 44%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; border: 0.15em solid rgba(239,230,214,0.3); }
+    .m-rest-copy { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 2em 3.2em; }
+    .m-rest .mk-eyebrow { color: #d4b17a; }
+    .m-rest .mk-h { font-family: 'Cormorant Garamond', serif; font-size: 3.9em; font-weight: 400; margin-bottom: 0.5em; }
+    .m-rest .mk-h em { color: #d4b17a; }
+    .m-rest-copy .mk-btn { background: #d4b17a; color: #16120f; border-radius: 0; font-size: 0.75em; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 1em 1.8em; }
+    .m-rest-hours { margin-top: 1.5em; font-size: 0.8em; opacity: 0.55; }
+
+    .m-trade { background: #fff; color: #13233a; }
+    .m-trade-bar { flex-shrink: 0; background: #13233a; color: rgba(255,255,255,0.85); text-align: center; font-size: 0.7em; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.6em; }
+    .m-trade-bar b { color: #ff7a3d; font-weight: 700; }
+    .m-trade .mk-nav { border-bottom: 1px solid #e8ebf0; }
+    .m-trade .mk-logo { display: flex; align-items: center; gap: 0.6em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+    .m-trade .mk-logo i { width: 1.7em; height: 1.7em; border-radius: 0.35em; background: #ff6a2b; }
+    .m-trade .mk-links { opacity: 0.7; }
+    .m-trade .mk-btn { background: #ff6a2b; color: #fff; border-radius: 0.35em; font-weight: 700; }
+    .m-trade-body { flex: 1; min-height: 0; display: grid; grid-template-columns: 1.05fr 0.95fr; }
+    .m-trade-copy { display: flex; flex-direction: column; justify-content: center; padding: 1.5em 2em 2em 2.4em; }
+    .m-trade .mk-h { font-family: 'Anton', sans-serif; font-size: 5.2em; line-height: 0.95; letter-spacing: 0; text-transform: uppercase; margin-bottom: 0.3em; }
+    .m-trade .mk-h span { color: #ff6a2b; }
+    .m-trade .mk-text { color: #56627a; margin-bottom: 1.6em; }
+    .m-trade-tags { display: flex; flex-wrap: wrap; gap: 0.5em; }
+    .m-trade-tags span { font-size: 0.72em; font-weight: 500; padding: 0.55em 0.9em; border-radius: 0.35em; background: #f1f4f8; }
+    .m-trade-ph { background: linear-gradient(150deg, #37577d 0%, #13233a 100%); clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%); }
+    .m-trade-chip { position: absolute; right: 1.6em; bottom: 1.6em; background: #fff; color: #13233a; font-size: 0.75em; font-weight: 700; padding: 0.7em 1.1em; border-radius: 0.35em; }
+
+    .m-fit { background: #0e0e0d; color: #f1f1ec; }
+    .m-fit .mk-logo { font-family: 'Anton', sans-serif; font-size: 1.7em; letter-spacing: 0.06em; }
+    .m-fit .mk-links { opacity: 0.65; }
+    .m-fit .mk-btn { background: #d6fb3f; color: #0e0e0d; font-weight: 700; }
+    .m-fit-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 2em; padding: 1.4em 2.4em 1.8em; }
+    .m-fit .mk-h { font-family: 'Anton', sans-serif; font-size: 7em; line-height: 0.9; letter-spacing: 0; text-transform: uppercase; }
+    .m-fit .mk-text { max-width: 15em; opacity: 0.6; padding-bottom: 0.5em; }
+    .m-fit-grid { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8em; padding: 0 2.4em; }
+    .m-fit-grid .mk-ph { border-radius: 0.6em 0.6em 0 0; background: linear-gradient(165deg, #3b3b37 0%, #1a1a18 100%); }
+    .m-fit-grid .mk-ph:nth-child(2) { background: linear-gradient(165deg, #d6fb3f 0%, #9dbd1f 100%); color: #0e0e0d; }
+    .m-fit-grid .mk-ph span { position: absolute; left: 1.4em; top: 1.2em; font-size: 0.75em; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    .m-salon { background: #f5e8e3; color: #3d2330; }
+    .m-salon .mk-nav { display: grid; grid-template-columns: 1fr auto 1fr; }
+    .m-salon .mk-logo { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 2.2em; font-weight: 500; line-height: 1; }
+    .m-salon .mk-btn { justify-self: end; border: 1px solid currentColor; }
+    .m-salon-hero { text-align: center; padding: 1.8em 2em 2.4em; }
+    .m-salon .mk-eyebrow { margin-bottom: 1.1em; color: #a4586e; }
+    .m-salon .mk-h { font-family: 'Cormorant Garamond', serif; font-size: 5.2em; font-weight: 400; line-height: 0.95; letter-spacing: -0.01em; }
+    .m-salon .mk-h em { color: #a4586e; }
+    .m-salon-grid { flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 1.2em; padding: 0 2.4em; }
+    .m-salon-grid .mk-ph { border-radius: 20em 20em 0 0; }
+    .m-salon-grid .mk-ph:nth-child(1) { margin-top: 3em; background: linear-gradient(175deg, #ebc6ba, #c28b82); }
+    .m-salon-grid .mk-ph:nth-child(2) { background: linear-gradient(175deg, #d9a3a6, #8c5165); }
+    .m-salon-grid .mk-ph:nth-child(3) { margin-top: 3em; background: linear-gradient(175deg, #efd7c6, #c49f84); }
+
+    .m-acct { background: #10233a; color: #eef2f7; }
+    .m-acct .mk-nav { border-bottom: 1px solid rgba(238,242,247,0.1); }
+    .m-acct .mk-logo { display: flex; align-items: center; gap: 0.6em; font-weight: 600; font-size: 1.05em; }
+    .m-acct .mk-logo i { font-style: normal; width: 1.8em; height: 1.8em; display: grid; place-items: center; background: #8fd3c7; color: #10233a; border-radius: 0.35em; font-family: 'Fraunces', serif; font-weight: 500; }
+    .m-acct .mk-links { opacity: 0.65; }
+    .m-acct .mk-btn { background: #8fd3c7; color: #10233a; border-radius: 0.4em; font-weight: 600; }
+    .m-acct-body { flex: 1; min-height: 0; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 2.6em; padding: 3.4em 2.4em 0 3.2em; }
+    .m-acct .mk-eyebrow { color: #8fd3c7; }
+    .m-acct .mk-h { font-size: 3.7em; font-weight: 600; line-height: 1.04; letter-spacing: -0.035em; margin-bottom: 0.45em; }
+    .m-acct .mk-h em { font-family: 'Fraunces', serif; font-weight: 400; color: #8fd3c7; letter-spacing: -0.01em; }
+    .m-acct .mk-text { opacity: 0.7; margin-bottom: 1.8em; }
+    .m-acct-actions { display: flex; align-items: center; gap: 1.6em; }
+    .m-acct-actions .mk-btn { font-size: 0.85em; }
+    .m-acct-link { font-size: 0.85em; font-weight: 500; opacity: 0.85; }
+    .m-acct-panel { display: flex; flex-direction: column; gap: 1em; }
+    .m-acct-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.8em; padding: 1.3em 1.4em; }
+    .m-acct-bars { display: flex; align-items: flex-end; gap: 0.7em; height: 8.5em; }
+    .m-acct-bars i { flex: 1; height: var(--h); background: rgba(143,211,199,0.28); border-radius: 0.3em 0.3em 0 0; }
+    .m-acct-bars i:last-child { background: #8fd3c7; }
+    .m-acct-list p { font-size: 0.85em; padding: 0.5em 0; }
+    .m-acct-list p + p { border-top: 1px solid rgba(255,255,255,0.08); }
+
+    .m-shop { background: #fbf6f0; color: #2d3e32; }
+    .m-shop .mk-logo { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.6em; }
+    .m-shop-cart { font-weight: 600; }
+    .m-shop-banner { display: flex; align-items: flex-end; justify-content: space-between; gap: 2em; padding: 1.6em 2.4em 2.2em; }
+    .m-shop .mk-h { font-family: 'Fraunces', serif; font-size: 3.7em; letter-spacing: -0.025em; }
+    .m-shop .mk-h em { color: #c25e6d; }
+    .m-shop .mk-btn { background: #2d3e32; color: #fbf6f0; }
+    .m-shop-grid { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1em; padding: 0 2.4em; }
+    .m-shop-item { display: flex; flex-direction: column; min-height: 0; }
+    .m-shop-item .mk-ph { flex: 1; border-radius: 0.7em; }
+    .m-shop-item p { display: flex; justify-content: space-between; padding: 0.8em 0 1.4em; font-size: 0.8em; font-weight: 500; }
+    .m-shop-item:nth-child(1) .mk-ph { background: radial-gradient(22% 16% at 38% 36%, #f4b9c4 55%, transparent 72%), radial-gradient(20% 14% at 64% 48%, #f6d68a 55%, transparent 72%), radial-gradient(18% 13% at 44% 60%, #fbeee6 55%, transparent 72%), linear-gradient(170deg, #cfdbc4, #8aa383); }
+    .m-shop-item:nth-child(2) .mk-ph { background: radial-gradient(26% 18% at 50% 40%, #e58ea0 55%, transparent 72%), radial-gradient(18% 13% at 30% 58%, #f7c9d2 55%, transparent 72%), radial-gradient(18% 13% at 70% 60%, #f7c9d2 55%, transparent 72%), linear-gradient(170deg, #f3dfd8, #d9b3ab); }
+    .m-shop-item:nth-child(3) .mk-ph { background: radial-gradient(22% 16% at 44% 38%, #d5553f 55%, transparent 72%), radial-gradient(18% 13% at 66% 56%, #e9a23b 55%, transparent 72%), radial-gradient(16% 12% at 34% 62%, #b9c48f 55%, transparent 72%), linear-gradient(170deg, #e6dccb, #b8a88d); }
+    .m-shop-item:nth-child(4) .mk-ph { background: radial-gradient(22% 16% at 40% 42%, #b9a4dc 55%, transparent 72%), radial-gradient(18% 13% at 62% 36%, #fff3d9 55%, transparent 72%), radial-gradient(18% 13% at 58% 62%, #e4b7d6 55%, transparent 72%), linear-gradient(170deg, #dfe3d4, #a3ae95); }
+
+    .m-yoga { color: #fff; background: linear-gradient(180deg, #9fb08f 0%, #8fa285 50%, #6a7f63 100%); }
+    .m-yoga::before { content: ''; position: absolute; width: 22em; aspect-ratio: 1; left: 52%; top: 6%; border-radius: 50%; background: radial-gradient(circle, rgba(255,244,220,0.95) 0 28%, rgba(255,244,220,0.25) 45%, transparent 70%); }
+    .m-yoga-hills { position: absolute; left: 0; bottom: 0; width: 100%; height: 62%; }
+    .m-yoga .mk-logo { font-family: 'Fraunces', serif; font-size: 1.5em; }
+    .m-yoga .mk-btn { background: #fff; color: #3a4a36; }
+    .m-yoga-body { position: relative; flex: 1; min-height: 0; display: flex; align-items: flex-end; justify-content: space-between; gap: 2em; padding: 2em 2.4em 2.6em 3em; }
+    .m-yoga .mk-h { font-family: 'Fraunces', serif; font-size: 4.6em; letter-spacing: -0.025em; }
+    .m-yoga-card { min-width: 16em; padding: 1.2em 1.4em; border-radius: 0.8em; background: rgba(250,248,242,0.94); color: #3a4a36; font-size: 0.9em; }
+    .m-yoga-card .mk-eyebrow { margin-bottom: 0.6em; color: #6f8468; }
+    .m-yoga-card p:not(.mk-eyebrow) { display: flex; gap: 1em; padding: 0.55em 0; border-top: 1px solid rgba(58,74,54,0.12); }
+    .m-yoga-card b { min-width: 4.4em; font-weight: 600; }
 
     /* TICKER */
     .ticker { position: relative; background: var(--forest); color: #fff; overflow: hidden; padding: 1.05rem 0; }
@@ -480,16 +626,12 @@
       .fade-up { opacity: 1; transform: none; transition: none; }
       html { scroll-behavior: auto; }
       .ticker-track { animation: none; }
+      .showcase-card, .showcase-card::after { transition: none; }
     }
 
     /* RESPONSIVE */
     @media (max-width: 980px) {
-      .hero { min-height: auto; padding-top: 7.5rem; }
-      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .hero-copy { text-align: center; }
-      .hero-sub { margin-inline: auto; }
-      .hero-actions { justify-content: center; }
-      .hero-visual { max-width: 620px; margin: 0 auto; }
+      .hero { padding-top: 7.5rem; }
       .bento-grid { grid-template-columns: 1fr 1fr; }
       .bento.wide { grid-column: span 2; }
       .step { grid-template-columns: 1fr; gap: 2rem; padding: 3.5rem 0 3.5rem 2rem; }
@@ -499,6 +641,10 @@
       footer { flex-direction: column; text-align: center; }
     }
     @media (max-width: 700px) {
+      .showcase-stage { --card-w: 78vw; --spread: 0.9; }
+      .showcase-card { border-radius: 8px; }
+      .showcase-controls { gap: 1rem; }
+      .showcase-caption { min-width: 11rem; }
       .portfolio-grid { grid-template-columns: 1fr; }
       .pricing-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
@@ -514,7 +660,7 @@
 </head>
 <body>
 
-<nav id="nav">
+<nav id="nav" class="on-dark">
   <a class="nav-logo" href="#">
     <span class="nav-mark">M</span>
     <span class="nav-word">Midsomer Design</span>
@@ -527,17 +673,190 @@
 </nav>
 
 <section class="hero">
-  <div class="hero-inner">
-    <div class="hero-copy fade-up">
-      <p class="hero-eyebrow"><span class="dot"></span>$0 Upfront</p>
-      <h1 class="hero-title">Your business<br>deserves a <em>great</em> website.</h1>
-      <p class="hero-sub">Midsomer Design builds beautiful, high-performing websites for small businesses — with <strong>no upfront cost</strong>. Just a simple monthly subscription.</p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn-primary">Book a Free Consultation</a>
+  <div class="hero-copy fade-up">
+    <h1 class="hero-title">Your business<br>deserves a <em>great</em> website.</h1>
+    <p class="hero-sub">Midsomer Design builds beautiful, high-performing websites for small businesses — with <strong>no upfront cost</strong>. Just a simple monthly subscription.</p>
+    <a href="#contact" class="btn-primary btn-light">Book a Free Consultation</a>
+    <p class="hero-note">$0 upfront. No lock-in.</p>
+  </div>
+
+  <!-- SHOWCASE: each card below is a placeholder mock-up of a type of site we build.
+       To swap in a real screenshot, replace a card's <div class="mock ..."> … </div> with
+       <img src="your-screenshot.jpg" alt=""> (a 16:10 image, e.g. 1600×1000, fits best). -->
+  <div class="showcase fade-up" id="showcase" role="region" aria-roledescription="carousel" aria-label="Examples of websites we design" style="transition-delay:0.15s">
+    <div class="showcase-stage">
+
+      <div class="showcase-card" role="group" aria-roledescription="slide" aria-label="Café website example" data-type="Cafés &amp; bakeries">
+        <div class="mock m-cafe" aria-hidden="true">
+          <div class="mk-nav">
+            <span class="mk-logo">Little Fern</span>
+            <span class="mk-links"><span>Menu</span><span>Our story</span><span>Visit us</span></span>
+            <span class="mk-btn">Order ahead</span>
+          </div>
+          <div class="m-cafe-body">
+            <div class="m-cafe-copy">
+              <p class="mk-eyebrow">Café &amp; bakery</p>
+              <p class="mk-h">Slow mornings,<br><em>good coffee.</em></p>
+              <p class="mk-text">Seasonal breakfasts, house-baked pastries and specialty coffee, seven days a week.</p>
+              <span class="mk-btn">View the menu</span>
+            </div>
+            <div class="mk-ph m-cafe-ph">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 26h32v12a14 14 0 0 1-14 14h-4a14 14 0 0 1-14-14z"/><path d="M44 30h3a6 6 0 0 1 0 12h-4"/><path d="M22 8c-2 3 2 6 0 10M30 8c-2 3 2 6 0 10M38 8c-2 3 2 6 0 10"/></svg>
+              <span class="m-cafe-chip">Open today · 6:30am – 3pm</span>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div class="showcase-card" role="group" aria-roledescription="slide" aria-label="Restaurant website example" data-type="Restaurants &amp; bars">
+        <div class="mock m-rest" aria-hidden="true">
+          <div class="mk-nav">
+            <span class="mk-links"><span>Menu</span><span>Wine</span><span>Private dining</span></span>
+            <span class="mk-logo">Osteria Lupo</span>
+            <span class="mk-btn">Reservations</span>
+          </div>
+          <div class="m-rest-body">
+            <div class="mk-ph m-rest-ph"></div>
+            <div class="m-rest-copy">
+              <p class="mk-eyebrow">Italian kitchen &amp; wine bar</p>
+              <p class="mk-h">Handmade pasta, <em>late into the evening.</em></p>
+              <span class="mk-btn">Book a table</span>
+              <p class="m-rest-hours">Tuesday – Sunday · 5pm until late</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="showcase-card" role="group" aria-roledescription="slide" aria-label="Plumber website example" data-type="Trades &amp; home services">
+        <div class="mock m-trade" aria-hidden="true">
+          <div class="m-trade-bar">24/7 emergency call-outs · <b>1300 000 000</b></div>
+          <div class="mk-nav">
+            <span class="mk-logo"><i></i>Ridgeline Plumbing</span>
+            <span class="mk-links"><span>Services</span><span>Service areas</span><span>About</span></span>
+            <span class="mk-btn">Get a free quote</span>
+          </div>
+          <div class="m-trade-body">
+            <div class="m-trade-copy">
+              <p class="mk-h">Fast. Fair.<br><span>Local.</span></p>
+              <p class="mk-text">Licensed plumbers with upfront pricing and no call-out surprises.</p>
+              <div class="m-trade-tags"><span>Blocked drains</span><span>Hot water</span><span>Leaks</span><span>Renovations</span></div>
+            </div>
+            <div class="mk-ph m-trade-ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              <span class="m-trade-chip">Licensed &amp; insured</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="showcase-card" role="group" aria-roledescription="slide" aria-label="Gym website example" data-type="Gyms &amp; personal trainers">
+        <div class="mock m-fit" aria-hidden="true">
+          <div class="mk-nav">
+            <span class="mk-logo">FORGE</span>
+            <span class="mk-links"><span>Programs</span><span>Coaches</span><span>Timetable</span></span>
+            <span class="mk-btn">Start a free trial</span>
+          </div>
+          <div class="m-fit-head">
+            <p class="mk-h">Stronger<br>every week</p>
+            <p class="mk-text">Personal training and small-group strength classes for every level.</p>
+          </div>
+          <div class="m-fit-grid">
+            <div class="mk-ph"><span>01 · Personal training</span></div>
+            <div class="mk-ph"><span>02 · Small group</span></div>
+            <div class="mk-ph"><span>03 · Online coaching</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="showcase-card" role="group" aria-roledescription="slide" aria-label="Hair salon website example" data-type="Hair &amp; beauty">
+        <div class="mock m-salon" aria-hidden="true">
+          <div class="mk-nav">
+            <span class="mk-links"><span>Services</span><span>Our team</span><span>Gallery</span></span>
+            <span class="mk-logo">Juniper</span>
+            <span class="mk-btn">Book now</span>
+          </div>
+          <div class="m-salon-hero">
+            <p class="mk-eyebrow">Hair &amp; colour studio</p>
+            <p class="mk-h">Hair, beautifully <em>done.</em></p>
+          </div>
+          <div class="m-salon-grid"><div class="mk-ph"></div><div class="mk-ph"></div><div class="mk-ph"></div></div>
+        </div>
+      </div>
+
+      <div class="showcase-card" role="group" aria-roledescription="slide" aria-label="Accounting firm website example" data-type="Professional services">
+        <div class="mock m-acct" aria-hidden="true">
+          <div class="mk-nav">
+            <span class="mk-logo"><i>H</i>Hale &amp; Partners</span>
+            <span class="mk-links"><span>Services</span><span>Industries</span><span>Resources</span></span>
+            <span class="mk-btn">Book a consult</span>
+          </div>
+          <div class="m-acct-body">
+            <div class="m-acct-copy">
+              <p class="mk-eyebrow">Accounting &amp; advisory</p>
+              <p class="mk-h">Clear numbers for <em>growing</em> businesses.</p>
+              <p class="mk-text">Tax, BAS and bookkeeping from a local team who actually pick up the phone.</p>
+              <div class="m-acct-actions"><span class="mk-btn">Get in touch</span><span class="m-acct-link">Our services →</span></div>
+            </div>
+            <div class="m-acct-panel">
+              <div class="m-acct-card">
+                <p class="mk-eyebrow">Quarterly overview</p>
+                <div class="m-acct-bars"><i style="--h:36%"></i><i style="--h:50%"></i><i style="--h:44%"></i><i style="--h:63%"></i><i style="--h:72%"></i><i style="--h:92%"></i></div>
+              </div>
+              <div class="m-acct-card m-acct-list"><p>✓&nbsp; Tax returns</p><p>✓&nbsp; BAS &amp; GST</p><p>✓&nbsp; Bookkeeping</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="showcase-card" role="group" aria-roledescription="slide" aria-label="Online florist website example" data-type="Retail &amp; online shops">
+        <div class="mock m-shop" aria-hidden="true">
+          <div class="mk-nav">
+            <span class="mk-logo">Wild Stem</span>
+            <span class="mk-links"><span>Shop</span><span>Weddings</span><span>Subscriptions</span></span>
+            <span class="m-shop-cart">Cart (2)</span>
+          </div>
+          <div class="m-shop-banner">
+            <p class="mk-h">Flowers, delivered<br><em>same day.</em></p>
+            <span class="mk-btn">Shop bouquets</span>
+          </div>
+          <div class="m-shop-grid">
+            <div class="m-shop-item"><div class="mk-ph"></div><p>The Meadow <span>$65</span></p></div>
+            <div class="m-shop-item"><div class="mk-ph"></div><p>Blush Peony <span>$85</span></p></div>
+            <div class="m-shop-item"><div class="mk-ph"></div><p>Native Wild <span>$70</span></p></div>
+            <div class="m-shop-item"><div class="mk-ph"></div><p>Garden Posy <span>$45</span></p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="showcase-card" role="group" aria-roledescription="slide" aria-label="Yoga studio website example" data-type="Health &amp; wellness">
+        <div class="mock m-yoga" aria-hidden="true">
+          <svg class="m-yoga-hills" viewBox="0 0 100 60" preserveAspectRatio="none"><path d="M0 30C16 20 30 22 46 30S78 18 100 26V60H0Z" fill="#7c9072"/><path d="M0 44C20 34 38 40 56 42S84 34 100 40V60H0Z" fill="#5a6e53"/></svg>
+          <div class="mk-nav">
+            <span class="mk-logo">tidewell</span>
+            <span class="mk-links"><span>Classes</span><span>Teachers</span><span>Pricing</span></span>
+            <span class="mk-btn">Book a class</span>
+          </div>
+          <div class="m-yoga-body">
+            <p class="mk-h">Breathe. Move.<br><em>Restore.</em></p>
+            <div class="m-yoga-card">
+              <p class="mk-eyebrow">Today's classes</p>
+              <p><b>6:00am</b> Sunrise flow</p>
+              <p><b>9:30am</b> Gentle hatha</p>
+              <p><b>6:15pm</b> Yin &amp; restore</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <div class="hero-visual fade-up" style="transition-delay:0.15s">
-      <img src="hero-image.png" alt="Small business website being built">
+    <div class="showcase-controls">
+      <button class="showcase-btn" id="showcase-prev" type="button" aria-label="Previous example">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <p class="showcase-caption" aria-live="off"><span id="showcase-type">Cafés &amp; bakeries</span><span class="showcase-count" id="showcase-count">1 / 8</span></p>
+      <button class="showcase-btn" id="showcase-next" type="button" aria-label="Next example">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -836,14 +1155,98 @@
   // Nav state + scroll progress
   const navEl = document.getElementById('nav');
   const progressEl = document.getElementById('progress');
+  const heroEl = document.querySelector('.hero');
   function onScroll() {
     const y = window.scrollY;
     navEl.classList.toggle('scrolled', y > 20);
+    navEl.classList.toggle('on-dark', y < heroEl.offsetHeight - navEl.offsetHeight);
     const max = document.documentElement.scrollHeight - window.innerHeight;
     progressEl.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
   }
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+
+  // Hero showcase carousel: arrows, click a side card, swipe/drag, arrow keys.
+  // Auto-advances until the visitor interacts (paused on hover/focus, off for reduced motion).
+  (function () {
+    const showcase = document.getElementById('showcase');
+    if (!showcase) return;
+    const stage = showcase.querySelector('.showcase-stage');
+    const cards = Array.from(stage.querySelectorAll('.showcase-card'));
+    const typeEl = document.getElementById('showcase-type');
+    const countEl = document.getElementById('showcase-count');
+    const n = cards.length;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let active = 0, timer = null, inView = false, paused = false, userControlled = false;
+    let dragStartX = null, dragged = false;
+
+    function render() {
+      cards.forEach((card, i) => {
+        let o = (i - active) % n;
+        if (o > n / 2) o -= n;
+        if (o < -n / 2) o += n;
+        const a = Math.abs(o);
+        card.style.setProperty('--o', o);
+        card.style.setProperty('--a', a);
+        card.style.setProperty('--dim', a === 0 ? 0 : a === 1 ? 0.5 : 0.75);
+        card.style.opacity = a > 2 ? 0 : 1;
+        card.style.pointerEvents = a > 2 ? 'none' : '';
+        card.style.zIndex = n - a;
+        card.classList.toggle('is-active', a === 0);
+        card.setAttribute('aria-hidden', a === 0 ? 'false' : 'true');
+      });
+      typeEl.textContent = cards[active].dataset.type;
+      countEl.textContent = (active + 1) + ' / ' + n;
+    }
+    function go(i) { active = (i + n) % n; render(); }
+    function sync() {
+      const run = inView && !paused && !userControlled && !reduceMotion;
+      if (run && !timer) timer = setInterval(() => { if (!document.hidden) go(active + 1); }, 5000);
+      if (!run && timer) { clearInterval(timer); timer = null; }
+    }
+    function takeControl() {
+      userControlled = true;
+      typeEl.parentElement.setAttribute('aria-live', 'polite');
+      sync();
+    }
+
+    document.getElementById('showcase-prev').addEventListener('click', () => { takeControl(); go(active - 1); });
+    document.getElementById('showcase-next').addEventListener('click', () => { takeControl(); go(active + 1); });
+    cards.forEach((card, i) => card.addEventListener('click', () => {
+      if (dragged || i === active) return;
+      takeControl(); go(i);
+    }));
+    showcase.addEventListener('keydown', e => {
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      e.preventDefault();
+      takeControl(); go(active + (e.key === 'ArrowRight' ? 1 : -1));
+    });
+
+    stage.addEventListener('pointerdown', e => {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      dragStartX = e.clientX;
+    });
+    window.addEventListener('pointerup', e => {
+      if (dragStartX === null) return;
+      const dx = e.clientX - dragStartX;
+      dragStartX = null;
+      if (Math.abs(dx) < 40) return;
+      dragged = true;
+      setTimeout(() => { dragged = false; });
+      takeControl(); go(active + (dx < 0 ? 1 : -1));
+    });
+    window.addEventListener('pointercancel', () => { dragStartX = null; });
+
+    ['mouseenter', 'focusin'].forEach(t => showcase.addEventListener(t, () => { paused = true; sync(); }));
+    ['mouseleave', 'focusout'].forEach(t => showcase.addEventListener(t, () => { paused = false; sync(); }));
+    new IntersectionObserver(([entry]) => { inView = entry.isIntersecting; sync(); }).observe(showcase);
+
+    stage.classList.add('is-instant');
+    render();
+    stage.offsetWidth;
+    stage.classList.remove('is-instant');
+  })();
 
   function openLightbox(card) {
     const title = card.dataset.title;
