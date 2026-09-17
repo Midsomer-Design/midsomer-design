@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "runtimeExecutable": "/bin/sh",
+      "runtimeArgs": ["-c", "cd /private/tmp/claude-503/-Users-midsomer-Documents-GitHub-midsomer-design/5c346100-13c9-4c35-a898-f40cdfbfd79b/scratchpad/site && exec python3 -m http.server 8080"],
+      "port": 8080
+    }
+  ]
+}
