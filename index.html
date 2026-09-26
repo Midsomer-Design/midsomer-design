@@ -692,9 +692,9 @@
     @media (max-width: 980px) {
       .hero { padding-top: 7.5rem; }
       .compare, .faq-inner, .contact-inner { grid-template-columns: 1fr; }
-      /* Once stacked, centre the FAQ and contact intros (the contact bullet list stays left-aligned) */
-      .faq-intro, .contact-intro .section-title, .contact-intro .section-sub { text-align: center; }
-      .faq-intro .section-sub, .contact-intro .section-sub { margin-inline: auto; }
+      /* Once stacked, centre the comparison, FAQ and contact intros (the contact bullet list stays left-aligned) */
+      .compare-title, .compare-sub, .faq-intro, .contact-intro .section-title, .contact-intro .section-sub { text-align: center; }
+      .compare-sub, .faq-intro .section-sub, .contact-intro .section-sub { margin-inline: auto; }
       /* Pricing becomes a stack: drag the top card left and the next plan slides in over it */
       .pricing-grid {
         --gutter: clamp(1.2rem, 5vw, 3.5rem);
@@ -767,7 +767,7 @@
 <section class="hero">
   <div class="hero-copy fade-up">
     <h1 class="hero-title">Your business<br>deserves a <em>great</em> website.</h1>
-    <p class="hero-sub">Modern websites for small businesses — with <strong>no upfront cost</strong>.<br>Just a simple monthly subscription.</p>
+    <p class="hero-sub">Modern websites for small businesses with <strong>no upfront cost</strong>.<br>Just a simple monthly subscription.</p>
     <a href="#contact" class="btn-primary btn-light">Book a Free Consultation</a>
   </div>
 
@@ -1040,7 +1040,7 @@
         <div class="step-text">
           <p class="step-label">Step 1</p>
           <h3 class="step-title">Book a free 20-minute call</h3>
-          <p class="step-desc">Tell us about your business, what you need, and what you're hoping to achieve. No commitment, no pressure — just a conversation to see if we're the right fit.</p>
+          <p class="step-desc">Tell us about your business, what you need, and what you're hoping to achieve. No commitment, no pressure. Just a conversation to see if we're the right fit.</p>
           <a href="#contact" class="btn-primary">Book a Call</a>
         </div>
         <div class="step-visual">Image placeholder</div>
@@ -1065,7 +1065,7 @@
         <div class="step-text">
           <p class="step-label">Step 4</p>
           <h3 class="step-title">We grow together</h3>
-          <p class="step-desc">Your website evolves with your business. Request updates, add new pages — we're with you every step of the way.</p>
+          <p class="step-desc">Your website evolves with your business. Request updates and add new pages, we're with you every step of the way.</p>
         </div>
         <div class="step-visual">Image placeholder</div>
       </div>
@@ -1092,7 +1092,7 @@
         <div class="ba-bar">
           <span class="ba-dots"><i></i><i></i><i></i></span>
           <span class="ba-label">Before</span>
-          <span class="ba-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>yourbusiness.com.au</span>
+          <span class="ba-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>yourbusiness.com</span>
           <span class="ba-label ba-label-after">After</span>
         </div>
         <div class="ba-stage" id="ba-stage">
@@ -1242,7 +1242,7 @@
   <div class="pricing-inner">
     <div class="head-center fade-up">
       <h2 class="section-title">Our plans</h2>
-      <p class="section-sub">One flat monthly fee covers everything — design, hosting, updates, and support. No setup costs, no hidden extras.</p>
+      <p class="section-sub">One flat monthly fee covers everything from design, hosting, updates and support. No setup costs, no hidden extras.</p>
     </div>
     <div class="pricing-grid">
       <div class="pricing-card fade-up">
@@ -1341,7 +1341,7 @@
         <div class="form-group"><label for="cf-email">Email address</label><input id="cf-email" name="email" type="email" autocomplete="email"></div>
         <div class="form-group"><label for="cf-phone">Phone number</label><input id="cf-phone" name="phone" type="tel" autocomplete="tel"></div>
       </div>
-      <div class="form-group"><label for="cf-site">Current website <span>(if you have one)</span></label><input id="cf-site" name="website" type="text" inputmode="url" autocomplete="url" placeholder="yourbusiness.com.au"></div>
+      <div class="form-group"><label for="cf-site">Current website <span>(if you have one)</span></label><input id="cf-site" name="website" type="text" inputmode="url" autocomplete="url" placeholder="yourbusiness.com"></div>
       <div class="form-group"><label for="cf-about">Tell us about your business</label><textarea id="cf-about" name="message" placeholder="What does your business do? What are you hoping to achieve with a new website?"></textarea></div>
       <button class="btn-primary form-submit" type="button">Request a Consultation</button>
     </div>
