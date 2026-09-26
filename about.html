@@ -203,7 +203,6 @@
     footer a { color: rgba(255,255,255,0.62); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--mint); }
     .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; letter-spacing: 0.02em; color: rgba(255,255,255,0.88); }
-    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.6rem; }
 
     /* ANIMATIONS */
     .fade-up { opacity: 0; transform: translateY(26px); transition: opacity 0.75s var(--ease), transform 0.75s var(--ease); }
@@ -214,11 +213,11 @@
     }
 
     /* RESPONSIVE */
-    @media (max-width: 1080px) {
-      .nav-anchor { display: none; }
-    }
     @media (max-width: 980px) {
       .contact-inner { grid-template-columns: 1fr; }
+      /* Once stacked, centre the contact intro (the bullet list stays left-aligned) */
+      .contact-intro .section-title, .contact-intro .section-sub { text-align: center; }
+      .contact-intro .section-sub { margin-inline: auto; }
       footer { flex-direction: column; text-align: center; }
     }
     @media (max-width: 800px) {
@@ -243,19 +242,14 @@
     <span class="nav-word">Midsomer Design</span>
   </a>
   <div class="nav-links">
-    <a href="index.html#how" class="nav-anchor">How it works</a>
-    <a href="index.html#work" class="nav-anchor">Our designs</a>
-    <a href="index.html#pricing" class="nav-anchor">Pricing</a>
-    <a href="index.html#faq" class="nav-anchor">FAQ</a>
     <a href="about.html" aria-current="page">Our Team</a>
     <a href="index.html#contact" class="nav-cta">Book a Call</a>
   </div>
 </nav>
 
 <header class="page-header">
-  <p class="section-label fade-up">The people behind the work</p>
   <h1 class="page-title fade-up">Our Team</h1>
-  <p class="page-sub fade-up">We're two founders who believe every small business deserves a great website — without the big upfront cost.</p>
+  <p class="page-sub fade-up">We are two designers who believe every small business deserves a great website — without the big upfront cost.</p>
 </header>
 
 <section class="founders">
@@ -305,8 +299,7 @@
 <section class="contact" id="contact">
   <div class="contact-inner">
     <div class="contact-intro fade-up">
-      <p class="section-label">Free consultation</p>
-      <h2 class="section-title">Book your free<br>15-minute consultation</h2>
+      <h2 class="section-title">Book your free<br>20-minute consultation</h2>
       <p class="section-sub">Tell us a bit about your business and we'll be in touch to arrange a quick call. No commitment required.</p>
       <ul class="tick-list">
         <li>A relaxed chat, with no pressure</li>
@@ -320,10 +313,7 @@
         <p>We'll reach out within one business day to arrange a call.</p>
       </div>
       <form id="about-form">
-        <div class="form-row">
-          <div class="form-group"><label for="af-first">First name</label><input id="af-first" name="first_name" type="text" autocomplete="given-name" required></div>
-          <div class="form-group"><label for="af-last">Last name</label><input id="af-last" name="last_name" type="text" autocomplete="family-name"></div>
-        </div>
+        <div class="form-group"><label for="af-name">Name</label><input id="af-name" name="name" type="text" autocomplete="name" required></div>
         <div class="form-row">
           <div class="form-group"><label for="af-email">Email address</label><input id="af-email" name="email" type="email" autocomplete="email" required></div>
           <div class="form-group"><label for="af-phone">Phone number</label><input id="af-phone" name="phone" type="tel" autocomplete="tel"></div>
@@ -338,13 +328,6 @@
 
 <footer>
   <span class="footer-logo">Midsomer Design</span>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="index.html#how">How it works</a>
-    <a href="index.html#work">Our designs</a>
-    <a href="index.html#pricing">Pricing</a>
-    <a href="index.html#faq">FAQ</a>
-  </div>
   <span>© 2026 Midsomer Design. All rights reserved.</span>
 </footer>
 

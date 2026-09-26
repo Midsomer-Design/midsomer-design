@@ -118,7 +118,6 @@
     nav.on-dark .nav-links a:not(.nav-cta)::after { background: #fff; }
     nav.on-dark .nav-cta { background: #fff !important; color: var(--forest-deep) !important; box-shadow: none; }
     nav.on-dark .nav-cta:hover { background: var(--mint-soft) !important; }
-    #progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 0; background: linear-gradient(90deg, var(--forest), var(--accent-bright)); transition: width 0.1s linear; }
 
     /* BUTTONS */
     .btn-primary {
@@ -154,8 +153,8 @@
       margin-bottom: 1.5rem; text-wrap: balance;
     }
     .hero-title em { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; letter-spacing: -0.01em; }
-    .hero-sub { font-size: 1.08rem; line-height: 1.7; color: rgba(255,255,255,0.7); font-weight: 300; max-width: 33rem; margin: 0 auto 2.3rem; text-wrap: pretty; }
-    .hero-sub strong { color: #fff; font-weight: 500; }
+    .hero-sub { font-size: 1.08rem; line-height: 1.7; color: rgba(255,255,255,0.7); font-weight: 300; max-width: 40rem; margin: 0 auto 2.3rem; text-wrap: pretty; }
+    .hero-sub strong { color: #fff; font-weight: 500; white-space: nowrap; }
     .hero-note { margin-top: 1.1rem; font-size: 0.8rem; letter-spacing: 0.03em; color: rgba(255,255,255,0.5); }
 
     /* SHOWCASE — carousel of example sites in the hero */
@@ -180,18 +179,16 @@
     .showcase-card::after { content: ''; position: absolute; inset: 0; background: #020604; opacity: var(--dim); transition: opacity 0.6s ease; pointer-events: none; }
     .showcase-card img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
     .showcase-stage.is-instant .showcase-card, .showcase-stage.is-instant .showcase-card::after { transition: none; }
-    .showcase-controls { display: flex; align-items: center; justify-content: center; gap: 1.4rem; margin-top: 2.2rem; padding: 0 1.2rem; }
+    .showcase-controls { display: flex; align-items: center; justify-content: space-between; margin-top: 1.6rem; padding: 0 clamp(0.75rem, 2.5vw, 2rem); }
     .showcase-btn {
-      width: 46px; height: 46px; flex-shrink: 0; border-radius: 50%; display: grid; place-items: center; cursor: pointer;
-      color: #fff; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.22);
-      transition: background 0.25s, border-color 0.25s, transform 0.25s var(--ease);
+      width: 44px; height: 44px; flex-shrink: 0; display: grid; place-items: center; cursor: pointer; padding: 0;
+      color: rgba(255,255,255,0.85); background: none; border: 0;
+      transition: color 0.25s, transform 0.25s var(--ease);
     }
-    .showcase-btn svg { width: 18px; height: 18px; }
-    .showcase-btn:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.5); }
-    .showcase-btn:active { transform: scale(0.94); }
+    .showcase-btn svg { width: 22px; height: 22px; }
+    .showcase-btn:hover { color: #fff; }
+    .showcase-btn:active { transform: scale(0.88); }
     .showcase-btn:focus-visible { outline: 2px solid var(--mint); outline-offset: 3px; }
-    .showcase-caption { min-width: 15rem; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.85); }
-    .showcase-count { display: block; margin-top: 0.4rem; letter-spacing: 0.14em; color: rgba(255,255,255,0.42); }
 
     /* Example-site mock-ups (placeholders). Everything is sized in em off the card width, so each one scales like a screenshot. */
     .mock { position: absolute; inset: 0; display: flex; flex-direction: column; overflow: hidden; text-align: left; font-family: 'DM Sans', sans-serif; font-size: 1.5cqw; line-height: 1.35; }
@@ -427,10 +424,12 @@
     }
 
     /* HOW IT WORKS — layout kept as-is */
-    .how { background: var(--white); }
+    .how { background: var(--white); padding-top: 0; }
     .how-inner { max-width: 1100px; margin: 0 auto; }
-    .how-header { margin-bottom: 4rem; }
-    .steps-list { display: flex; flex-direction: column; gap: 0; position: relative; }
+    .how-header { margin-bottom: 0; }
+    .how-header .section-title { margin-bottom: 0; }
+    /* Each step has its own top padding; pull the list up so the gap under the heading matches .head-center */
+    .steps-list { display: flex; flex-direction: column; gap: 0; position: relative; margin-top: calc(clamp(2.8rem, 5vw, 4rem) - 5rem); }
     .step {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -513,10 +512,6 @@
     .ba-knob { position: absolute; top: 50%; left: 50%; width: 50px; height: 50px; transform: translate(-50%, -50%); display: grid; place-items: center; border-radius: 50%; background: #fff; color: var(--forest-deep); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
     .ba-knob svg { width: 22px; height: 22px; }
     .ba-range:focus-visible ~ .ba-handle .ba-knob { outline: 3px solid var(--mint); outline-offset: 3px; }
-    .ba-notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2.8rem; }
-    .ba-note { padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,0.14); }
-    .ba-note b { display: block; margin-bottom: 0.4rem; font-size: 1rem; font-weight: 600; color: #fff; }
-    .ba-note span { font-size: 0.92rem; line-height: 1.6; font-weight: 300; color: rgba(255,255,255,0.62); }
     .work-cta { margin-top: 3.2rem; text-align: center; }
 
     /* "Before" mock-ups: deliberately dated sites, sized in em like the hero mock-ups */
@@ -573,12 +568,11 @@
 
     /* PRICING */
     .pricing { background: var(--cream); }
-    .pricing-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 0.9fr 1.55fr; gap: clamp(2.5rem, 5vw, 5rem); align-items: center; }
-    .pricing-intro .section-sub { margin-bottom: 2rem; }
+    .pricing-inner { max-width: 1160px; margin: 0 auto; }
     .tick-list { list-style: none; margin-bottom: 2rem; border-top: 1px solid var(--line); }
     .tick-list li { display: flex; align-items: baseline; gap: 0.8rem; padding: 0.95rem 0; border-bottom: 1px solid var(--line); font-size: 0.95rem; line-height: 1.5; color: var(--ink); }
     .tick-list li::before { content: ''; flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--accent-bright); transform: translateY(-2px); }
-    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; align-items: stretch; }
+    .pricing-grid { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; align-items: stretch; }
     .pricing-card {
       position: relative; display: flex; flex-direction: column;
       background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg);
@@ -615,11 +609,11 @@
     .pricing-card.featured .pricing-features li::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239fe0b4' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5 5L20 6.5'/%3E%3C/svg%3E"); }
     .pricing-card.featured .pricing-cta { background: #fff; color: var(--forest-deep); }
     .pricing-card.featured .pricing-cta:hover { background: var(--mint-soft); box-shadow: 0 10px 26px rgba(0,0,0,0.3); }
+    .pricing-dots { display: none; }
 
     /* FAQ */
     .faq { background: var(--paper); }
     .faq-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 0.9fr 1.55fr; gap: clamp(2.5rem, 5vw, 5rem); align-items: start; }
-    .faq-intro { position: sticky; top: 7.5rem; }
     .faq-intro .section-sub { margin-bottom: 1.8rem; }
     .faq-list { border-top: 1px solid #dcd9ce; }
     .faq-item { border-bottom: 1px solid #dcd9ce; }
@@ -679,12 +673,12 @@
     footer a { color: rgba(255,255,255,0.62); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--mint); }
     .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; letter-spacing: 0.02em; color: rgba(255,255,255,0.88); }
-    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.6rem; }
 
     /* ANIMATIONS */
     .fade-up { opacity: 0; transform: translateY(26px); transition: opacity 0.75s var(--ease), transform 0.75s var(--ease); }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
     .paths-grid > .fade-up:nth-child(2), .pricing-grid > .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .pricing-grid > .fade-up:nth-child(3) { transition-delay: 0.2s; }
     @media (prefers-reduced-motion: reduce) {
       .fade-up { opacity: 1; transform: none; transition: none; }
       html { scroll-behavior: auto; }
@@ -692,14 +686,37 @@
     }
 
     /* RESPONSIVE */
-    @media (max-width: 1080px) {
-      .nav-anchor { display: none; }
+    @media (max-width: 980px) and (pointer: fine) {
+      .pricing-grid { cursor: grab; -webkit-user-select: none; user-select: none; }
     }
     @media (max-width: 980px) {
       .hero { padding-top: 7.5rem; }
-      .compare, .pricing-inner, .faq-inner, .contact-inner { grid-template-columns: 1fr; }
-      .faq-intro { position: static; }
+      .compare, .faq-inner, .contact-inner { grid-template-columns: 1fr; }
+      /* Once stacked, centre the FAQ and contact intros (the contact bullet list stays left-aligned) */
+      .faq-intro, .contact-intro .section-title, .contact-intro .section-sub { text-align: center; }
+      .faq-intro .section-sub, .contact-intro .section-sub { margin-inline: auto; }
+      /* Pricing becomes a stack: drag the top card left and the next plan slides in over it */
+      .pricing-grid {
+        --gutter: clamp(1.2rem, 5vw, 3.5rem);
+        grid-template-columns: min(80vw, 21rem);
+        margin: -1.5rem calc(-1 * var(--gutter)) 0;
+        padding: 1.5rem var(--gutter) 3rem; /* room for the card shadows inside the clipped area */
+        overflow: hidden; overflow: clip;
+        touch-action: pan-y; /* vertical swipes still scroll the page; sideways ones move the cards */
+      }
+      .pricing-grid.is-dragging { cursor: grabbing; }
+      .pricing-grid .pricing-card { grid-area: 1 / 1; transform-origin: left center; transition: opacity 0.75s var(--ease); will-change: transform; }
+      .pricing-card, .pricing-card:hover { box-shadow: -12px 0 32px rgba(1,32,11,0.1), 0 10px 28px rgba(1,32,11,0.06); }
+      .pricing-card.featured, .pricing-card.featured:hover { box-shadow: -12px 0 32px rgba(1,32,11,0.2), 0 14px 34px rgba(1,32,11,0.2); }
+      /* Covered cards dim a little as the next one lands on them */
+      .pricing-card::after { content: ''; position: absolute; inset: -1px; border-radius: inherit; background: #0b1a10; opacity: var(--cover, 0); pointer-events: none; }
+      .pricing-dots { position: relative; z-index: 1; display: flex; justify-content: center; margin-top: -1.6rem; }
+      .pricing-dot { width: 28px; height: 32px; display: grid; place-items: center; padding: 0; border: 0; background: none; cursor: pointer; }
+      .pricing-dot::before { content: ''; width: 7px; height: 7px; border-radius: 999px; background: rgba(1,50,18,0.2); transition: width 0.3s var(--ease), background-color 0.3s; }
+      .pricing-dot[aria-current="true"]::before { width: 22px; background: var(--forest); }
+      .pricing-dot:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 999px; }
       .step { grid-template-columns: 1fr; gap: 2rem; padding: 3.5rem 0 3.5rem 2rem; }
+      .steps-list { margin-top: calc(clamp(2.8rem, 5vw, 4rem) - 3.5rem); }
       .step.reverse .step-text, .step.reverse .step-visual { order: unset; }
       .step-visual { max-width: 100%; }
       .step-title { font-size: clamp(1.7rem, 6vw, 2.2rem); }
@@ -711,8 +728,6 @@
     @media (max-width: 700px) {
       .showcase-stage { --card-w: 78vw; --spread: 0.9; }
       .showcase-card { border-radius: 8px; }
-      .showcase-controls { gap: 1rem; }
-      .showcase-caption { min-width: 11rem; }
       .path { padding: 0.5rem 0.5rem 2rem; }
       .path-body { padding: 1.6rem 1.2rem 0; }
       .ct { font-size: 0.86rem; }
@@ -724,8 +739,6 @@
       .ba-url svg { display: none; }
       .ba-knob { width: 40px; height: 40px; }
       .ba-label { padding: 0.28rem 0.55rem; font-size: 0.55rem; letter-spacing: 0.1em; }
-      .ba-notes { grid-template-columns: 1fr; gap: 1.4rem; }
-      .pricing-grid { grid-template-columns: 1fr; }
       .faq-q { gap: 0.9rem; padding: 1.35rem 0; font-size: 1rem; }
       .faq-num { min-width: 1.6rem; }
       .faq-a p { padding: 0 0 1.5rem 2.5rem; }
@@ -746,22 +759,16 @@
     <span class="nav-word">Midsomer Design</span>
   </a>
   <div class="nav-links">
-    <a href="#how" class="nav-anchor">How it works</a>
-    <a href="#work" class="nav-anchor">Our designs</a>
-    <a href="#pricing" class="nav-anchor">Pricing</a>
-    <a href="#faq" class="nav-anchor">FAQ</a>
     <a href="about.html">Our Team</a>
     <a href="#contact" class="nav-cta">Book a Call</a>
   </div>
-  <div id="progress"></div>
 </nav>
 
 <section class="hero">
   <div class="hero-copy fade-up">
     <h1 class="hero-title">Your business<br>deserves a <em>great</em> website.</h1>
-    <p class="hero-sub">Midsomer Design builds beautiful, high-performing websites for small businesses — with <strong>no upfront cost</strong>. Just a simple monthly subscription.</p>
+    <p class="hero-sub">Modern websites for small businesses — with <strong>no upfront cost</strong>.<br>Just a simple monthly subscription.</p>
     <a href="#contact" class="btn-primary btn-light">Book a Free Consultation</a>
-    <p class="hero-note">$0 upfront. No lock-in.</p>
   </div>
 
   <!-- SHOWCASE: each card below is a placeholder mock-up of a type of site we build.
@@ -935,11 +942,10 @@
     </div>
     <div class="showcase-controls">
       <button class="showcase-btn" id="showcase-prev" type="button" aria-label="Previous example">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
       </button>
-      <p class="showcase-caption" aria-live="off"><span id="showcase-type">Cafés &amp; bakeries</span><span class="showcase-count" id="showcase-count">1 / 8</span></p>
       <button class="showcase-btn" id="showcase-next" type="button" aria-label="Next example">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
       </button>
     </div>
   </div>
@@ -948,9 +954,7 @@
 <section class="paths" id="paths">
   <div class="paths-inner">
     <div class="head-center fade-up">
-      <p class="section-label">Who we help</p>
       <h2 class="section-title">Starting fresh, or due for a <em>refresh?</em></h2>
-      <p class="section-sub">Whether you're opening your doors or your current website is letting you down, we'll build you a site you're proud of, with no upfront cost.</p>
     </div>
 
     <div class="paths-grid">
@@ -969,8 +973,8 @@
           <span class="mini-live"><i></i>Live</span>
         </div>
         <div class="path-body">
-          <p class="path-kicker">New business</p>
-          <h3 class="path-title">Launch looking established.</h3>
+          <p class="path-kicker">Launch looking established.</p>
+          <h3 class="path-title">New business</h3>
           <p class="path-text">Opening your doors? We'll design and build a custom website that looks the part from day one. Most sites go live within 2–3 weeks.</p>
           <a href="#how" class="text-link">How it works</a>
         </div>
@@ -996,8 +1000,8 @@
           </div>
         </div>
         <div class="path-body">
-          <p class="path-kicker">Existing website</p>
-          <h3 class="path-title">Refresh it for $0 upfront.</h3>
+          <p class="path-kicker">Refresh it for $0 upfront.</p>
+          <h3 class="path-title">Existing website</h3>
           <p class="path-text">Dated design, slow pages, or a site that's hard to use on a phone? We'll redesign and rebuild it with no upfront cost, then look after it for one monthly fee.</p>
           <a href="#work" class="text-link">See a refresh</a>
         </div>
@@ -1014,7 +1018,7 @@
           <tr><th scope="col"><span class="sr-only">What you get</span></th><th scope="col">The usual way</th><th scope="col" class="ct-us">Midsomer</th></tr>
         </thead>
         <tbody>
-          <tr><th scope="row">Upfront cost</th><td>A big one-off bill</td><td class="ct-us">$0 upfront</td></tr>
+          <tr><th scope="row">Upfront cost</th><td>A big one off bill</td><td class="ct-us">$0 upfront</td></tr>
           <tr><th scope="row">Design</th><td>Often a template</td><td class="ct-us">Custom designed for you</td></tr>
           <tr><th scope="row">Hosting &amp; SSL</th><td>Often an extra cost</td><td class="ct-us">Included</td></tr>
           <tr><th scope="row">Updates &amp; changes</th><td>Often billed per change</td><td class="ct-us">Included in your plan</td></tr>
@@ -1028,14 +1032,14 @@
 <section class="how" id="how">
   <div class="how-inner">
     <div class="how-header fade-up" style="text-align:center;">
-      <h2 class="section-title">Our process</h2>
+      <h2 class="section-title">Here&rsquo;s how it works:</h2>
     </div>
     <div class="steps-list">
       <div id="steps-line"></div>
       <div class="step fade-up">
         <div class="step-text">
           <p class="step-label">Step 1</p>
-          <h3 class="step-title">Book a free 15-minute call</h3>
+          <h3 class="step-title">Book a free 20-minute call</h3>
           <p class="step-desc">Tell us about your business, what you need, and what you're hoping to achieve. No commitment, no pressure — just a conversation to see if we're the right fit.</p>
           <a href="#contact" class="btn-primary">Book a Call</a>
         </div>
@@ -1074,9 +1078,8 @@
 <section class="work" id="work">
   <div class="work-inner">
     <div class="head-center fade-up">
-      <p class="section-label">Our designs</p>
-      <h2 class="section-title">From dated to <em>done.</em></h2>
-      <p class="section-sub">Drag the slider to see what a refresh can do. These are example designs; yours will be made from scratch for your business.</p>
+      <h2 class="section-title">Same business, <em>new look.</em></h2>
+      <p class="section-sub">Drag the slider to see what a refresh can do for you.</p>
     </div>
 
     <div class="ba fade-up">
@@ -1227,11 +1230,6 @@
         </div>
       </div>
 
-      <div class="ba-notes">
-        <p class="ba-note"><b>Made for phones</b><span>Looks sharp and works properly on every screen size.</span></p>
-        <p class="ba-note"><b>Clear next steps</b><span>Obvious ways for customers to call, book or order.</span></p>
-        <p class="ba-note"><b>Easy to find</b><span>Built for search engines from day one, so customers can find you on Google.</span></p>
-      </div>
       <div class="work-cta">
         <a href="#contact" class="btn-primary btn-light">Book a Free Consultation</a>
       </div>
@@ -1242,24 +1240,31 @@
 <!-- PRICING -->
 <section class="pricing" id="pricing">
   <div class="pricing-inner">
-    <div class="pricing-intro fade-up">
-      <p class="section-label">Pricing</p>
+    <div class="head-center fade-up">
       <h2 class="section-title">Our plans</h2>
       <p class="section-sub">One flat monthly fee covers everything — design, hosting, updates, and support. No setup costs, no hidden extras.</p>
-      <ul class="tick-list">
-        <li>$0 upfront, for a new website or a refresh</li>
-        <li>Hosting, updates and support included</li>
-        <li>No lock-in, cancel anytime</li>
-      </ul>
-      <a href="#contact" class="text-link">Not sure which plan? Book a free call</a>
     </div>
     <div class="pricing-grid">
       <div class="pricing-card fade-up">
-        <p class="pricing-plan">Starter</p>
+        <p class="pricing-plan">Refresh</p>
+        <div class="pricing-price">$79</div>
+        <p class="pricing-period">per month, no lock-in</p>
+        <ul class="pricing-features">
+          <li>Redesign of your existing website</li>
+          <li>Up to 5 pages</li>
+          <li>Mobile-optimised</li>
+          <li>Hosting &amp; SSL included</li>
+          <li>SEO foundations</li>
+          <li>2 content updates per month</li>
+        </ul>
+        <a href="#contact" class="pricing-cta">Get started</a>
+      </div>
+      <div class="pricing-card fade-up">
+        <p class="pricing-plan">New website</p>
         <div class="pricing-price">$99</div>
         <p class="pricing-period">per month, no lock-in</p>
         <ul class="pricing-features">
-          <li>Custom designed website</li>
+          <li>Custom website built from scratch</li>
           <li>Up to 5 pages</li>
           <li>Mobile-optimised</li>
           <li>Hosting &amp; SSL included</li>
@@ -1273,7 +1278,7 @@
         <div class="pricing-price">$249</div>
         <p class="pricing-period">per month, no lock-in</p>
         <ul class="pricing-features">
-          <li>Everything in Starter</li>
+          <li>Everything in New website</li>
           <li>Up to 15 pages</li>
           <li>Online booking or shop</li>
           <li>Priority support</li>
@@ -1283,15 +1288,15 @@
         <a href="#contact" class="pricing-cta">Get started</a>
       </div>
     </div>
+    <div class="pricing-dots" id="pricing-dots"></div>
   </div>
 </section>
 
 <section class="faq" id="faq">
   <div class="faq-inner">
     <div class="faq-intro fade-up">
-      <p class="section-label">FAQ</p>
       <h2 class="section-title">Got questions?</h2>
-      <p class="section-sub">Still not sure about something? Book a free 15-minute call and ask us directly.</p>
+      <p class="section-sub">Still not sure about something? Book a free 20-minute call and ask us directly.</p>
       <a href="#contact" class="text-link">Book a call</a>
     </div>
     <div class="faq-list fade-up">
@@ -1322,8 +1327,7 @@
 <section class="contact" id="contact">
   <div class="contact-inner">
     <div class="contact-intro fade-up">
-      <p class="section-label">Free consultation</p>
-      <h2 class="section-title">Book your free<br>15-minute consultation</h2>
+      <h2 class="section-title">Book your free<br>20-minute consultation</h2>
       <p class="section-sub">Tell us a bit about your business and we'll be in touch to arrange a quick call. No commitment required.</p>
       <ul class="tick-list">
         <li>A relaxed chat, with no pressure</li>
@@ -1332,10 +1336,7 @@
       </ul>
     </div>
     <div class="contact-form fade-up">
-      <div class="form-row">
-        <div class="form-group"><label for="cf-first">First name</label><input id="cf-first" name="first_name" type="text" autocomplete="given-name"></div>
-        <div class="form-group"><label for="cf-last">Last name</label><input id="cf-last" name="last_name" type="text" autocomplete="family-name"></div>
-      </div>
+      <div class="form-group"><label for="cf-name">Name</label><input id="cf-name" name="name" type="text" autocomplete="name"></div>
       <div class="form-row">
         <div class="form-group"><label for="cf-email">Email address</label><input id="cf-email" name="email" type="email" autocomplete="email"></div>
         <div class="form-group"><label for="cf-phone">Phone number</label><input id="cf-phone" name="phone" type="tel" autocomplete="tel"></div>
@@ -1349,13 +1350,6 @@
 
 <footer>
   <span class="footer-logo">Midsomer Design</span>
-  <div class="footer-links">
-    <a href="#how">How it works</a>
-    <a href="#work">Our designs</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#faq">FAQ</a>
-    <a href="about.html">Our Team</a>
-  </div>
   <span>© 2026 Midsomer Design. All rights reserved.</span>
 </footer>
 
@@ -1374,13 +1368,17 @@
 
   // Observer handles elements that come into view on scroll
   const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      // Pricing cards reveal together: on mobile the off-screen ones sit in a sideways scroller and never intersect
+      const group = e.target.closest('.pricing-grid');
+      (group ? group.querySelectorAll('.fade-up') : [e.target]).forEach(el => el.classList.add('visible'));
+    });
   }, { threshold: 0.08 });
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
-  // Nav state + scroll progress
+  // Nav state
   const navEl = document.getElementById('nav');
-  const progressEl = document.getElementById('progress');
   const darkSections = document.querySelectorAll('.hero, .work, .contact, footer');
   function onScroll() {
     const y = window.scrollY;
@@ -1391,8 +1389,6 @@
       const r = s.getBoundingClientRect();
       return r.top <= mid && r.bottom > mid;
     }));
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    progressEl.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
   }
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -1405,8 +1401,6 @@
     if (!showcase) return;
     const stage = showcase.querySelector('.showcase-stage');
     const cards = Array.from(stage.querySelectorAll('.showcase-card'));
-    const typeEl = document.getElementById('showcase-type');
-    const countEl = document.getElementById('showcase-count');
     const n = cards.length;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let active = 0, timer = null, inView = false, paused = false, userControlled = false;
@@ -1427,8 +1421,6 @@
         card.classList.toggle('is-active', a === 0);
         card.setAttribute('aria-hidden', a === 0 ? 'false' : 'true');
       });
-      typeEl.textContent = cards[active].dataset.type;
-      countEl.textContent = (active + 1) + ' / ' + n;
     }
     function go(i) { active = (i + n) % n; render(); }
     function sync() {
@@ -1438,7 +1430,6 @@
     }
     function takeControl() {
       userControlled = true;
-      typeEl.parentElement.setAttribute('aria-live', 'polite');
       sync();
     }
 
@@ -1555,22 +1546,151 @@
   function positionStepsLine() {
     const line = document.getElementById('steps-line');
     const list = document.querySelector('.steps-list');
-    const visuals = document.querySelectorAll('.step-visual');
-    if (!line || !list || visuals.length === 0) return;
+    const steps = list ? list.querySelectorAll('.step') : [];
+    if (!line || !list || steps.length === 0) return;
     const listRect = list.getBoundingClientRect();
-    const firstRect = visuals[0].getBoundingClientRect();
-    const lastRect = visuals[visuals.length - 1].getBoundingClientRect();
-    const firstStep = visuals[0].closest('.step');
-    const lastStep = visuals[visuals.length - 1].closest('.step');
-    const firstTransY = firstStep ? new DOMMatrix(getComputedStyle(firstStep).transform).m42 : 0;
-    const lastTransY = lastStep ? new DOMMatrix(getComputedStyle(lastStep).transform).m42 : 0;
-    const top = firstRect.top - listRect.top - firstTransY;
-    const bottom = lastRect.bottom - listRect.top - lastTransY;
+    // Span the content of the first and last steps (text or visual, whichever reaches further),
+    // so the line starts above step 1 whether the columns sit side by side or stack on mobile.
+    const firstStep = steps[0];
+    const lastStep = steps[steps.length - 1];
+    const firstTop = Math.min(...Array.from(firstStep.children, c => c.getBoundingClientRect().top));
+    const lastBottom = Math.max(...Array.from(lastStep.children, c => c.getBoundingClientRect().bottom));
+    const firstTransY = new DOMMatrix(getComputedStyle(firstStep).transform).m42;
+    const lastTransY = new DOMMatrix(getComputedStyle(lastStep).transform).m42;
+    const top = firstTop - listRect.top - firstTransY;
+    const bottom = lastBottom - listRect.top - lastTransY;
     line.style.top = top + 'px';
     line.style.height = (bottom - top) + 'px';
   }
   window.addEventListener('load', positionStepsLine);
   window.addEventListener('resize', positionStepsLine);
+
+  // Pricing on mobile: a stack of cards. Drag the top card left and the next plan slides in over it;
+  // covered cards ease back and dim. The dots show which plan is on top and jump to one when tapped.
+  (function pricingStack() {
+    const track = document.querySelector('.pricing-grid');
+    const dotsEl = document.getElementById('pricing-dots');
+    if (!track || !dotsEl) return;
+    const cards = Array.from(track.querySelectorAll('.pricing-card'));
+    const last = cards.length - 1;
+    const GAP = 16;
+    const isStack = window.matchMedia('(max-width: 980px)');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let pos = 0;   // index of the card on top; fractional while dragging or gliding
+    let anim = 0;
+
+    const dots = cards.map((card, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'pricing-dot';
+      dot.setAttribute('aria-label', 'Show ' + card.querySelector('.pricing-plan').textContent + ' plan');
+      dot.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(dot);
+      return dot;
+    });
+    const current = () => Math.round(Math.min(Math.max(pos, 0), last));
+
+    function render() {
+      if (!isStack.matches) {
+        cards.forEach(c => { c.style.transform = ''; c.style.removeProperty('--cover'); });
+        return;
+      }
+      const stepW = cards[0].offsetWidth + GAP;
+      cards.forEach((card, i) => {
+        const d = i - pos;
+        if (d >= 0) {
+          // waiting to the right (the next one peeks in), or sliding over the stack
+          card.style.transform = `translate3d(${d * stepW}px, 0, 0)`;
+          card.style.setProperty('--cover', '0');
+        } else {
+          // covered: shrink back a touch so its edge shows on the left, and dim
+          const depth = Math.min(-d, 2);
+          card.style.transform = `translate3d(${-8 * depth}px, 0, 0) scale(${1 - 0.05 * depth})`;
+          card.style.setProperty('--cover', (0.16 * depth).toFixed(3));
+        }
+      });
+      dots.forEach((dot, i) => dot.setAttribute('aria-current', i === current() ? 'true' : 'false'));
+    }
+
+    function goTo(target) {
+      target = Math.max(0, Math.min(last, target));
+      cancelAnimationFrame(anim);
+      const from = pos, start = performance.now(), dur = reduceMotion ? 0 : 480;
+      const tick = now => {
+        const t = dur ? Math.min((now - start) / dur, 1) : 1;
+        pos = from + (target - from) * (1 - Math.pow(1 - t, 3));
+        render();
+        if (t < 1) anim = requestAnimationFrame(tick);
+      };
+      anim = requestAnimationFrame(tick);
+    }
+
+    // Dragging, by finger or mouse. It only takes over once the gesture is clearly sideways.
+    let drag = null, suppressClick = false;
+    track.addEventListener('pointerdown', e => {
+      if (!isStack.matches || (e.pointerType === 'mouse' && e.button !== 0)) return;
+      cancelAnimationFrame(anim);
+      drag = { id: e.pointerId, x: e.clientX, y: e.clientY, from: pos, active: false, samples: [] };
+    });
+    track.addEventListener('pointermove', e => {
+      if (!drag || e.pointerId !== drag.id) return;
+      const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+      if (!drag.active) {
+        if (Math.abs(dy) > 10 && Math.abs(dy) > Math.abs(dx)) { drag = null; goTo(current()); return; }
+        if (Math.abs(dx) < 6 || Math.abs(dx) < Math.abs(dy)) return;
+        drag.active = true;
+        try { track.setPointerCapture(e.pointerId); } catch (err) { /* pointer already gone */ }
+        track.classList.add('is-dragging');
+      }
+      let p = drag.from - dx / (cards[0].offsetWidth + GAP);
+      if (p < 0) p *= 0.3; else if (p > last) p = last + (p - last) * 0.3;   // resist past either end
+      pos = p;
+      render();
+      drag.samples.push([e.timeStamp, e.clientX]);
+      if (drag.samples.length > 6) drag.samples.shift();
+    });
+    function endDrag(e) {
+      if (!drag || e.pointerId !== drag.id) return;
+      const d = drag;
+      drag = null;
+      track.classList.remove('is-dragging');
+      if (!d.active) { if (pos !== current()) goTo(current()); return; }
+      suppressClick = true;
+      setTimeout(() => { suppressClick = false; }, 0);
+      // A quick flick moves one card even if it didn't travel far
+      let v = 0;
+      const recent = e.type === 'pointerup' ? d.samples.filter(s => e.timeStamp - s[0] < 100) : [];
+      if (recent.length > 1) {
+        const [t0, x0] = recent[0], [t1, x1] = recent[recent.length - 1];
+        if (t1 > t0) v = (x1 - x0) / (t1 - t0);
+      }
+      let target = Math.round(pos);
+      if (v < -0.3) target = Math.floor(pos) + 1;
+      else if (v > 0.3) target = Math.ceil(pos) - 1;
+      goTo(target);
+    }
+    track.addEventListener('pointerup', endDrag);
+    track.addEventListener('pointercancel', endDrag);
+
+    track.addEventListener('click', e => {
+      // A drag that ends on a "Get started" button shouldn't count as a click
+      if (suppressClick) { e.preventDefault(); e.stopPropagation(); return; }
+      if (!isStack.matches) return;
+      // Tapping the peeking card (or a covered card's edge) brings that plan to the top
+      const i = cards.indexOf(e.target.closest('.pricing-card'));
+      if (i !== -1 && i !== current()) { e.preventDefault(); e.stopPropagation(); goTo(i); }
+    }, true);
+    track.addEventListener('focusin', e => {
+      track.scrollLeft = 0;
+      const i = cards.indexOf(e.target.closest('.pricing-card'));
+      if (isStack.matches && i !== -1 && i !== current()) goTo(i);
+    });
+    track.addEventListener('dragstart', e => e.preventDefault());
+
+    isStack.addEventListener('change', render);
+    window.addEventListener('resize', render);
+    render();
+  })();
 
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
