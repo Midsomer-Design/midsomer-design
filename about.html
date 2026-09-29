@@ -189,9 +189,8 @@
     .form-group input:focus, .form-group textarea:focus { border-color: var(--forest); box-shadow: 0 0 0 4px rgba(11,157,67,0.12); }
     .form-group textarea { min-height: 110px; }
     .form-submit { width: 100%; justify-content: center; margin-top: 0.4rem; padding: 1.05rem; font-size: 0.82rem; }
-    .form-success { display: none; padding: 2.5rem 0.5rem; text-align: center; }
-    .form-success h3 { margin-bottom: 0.6rem; font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; color: var(--forest); }
-    .form-success p { font-size: 0.95rem; color: var(--ink-soft); }
+    .form-submit:disabled { opacity: 0.6; cursor: wait; }
+    .form-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
     /* FOOTER */
     footer {
@@ -308,11 +307,8 @@
       </ul>
     </div>
     <div class="contact-form fade-up">
-      <div id="about-form-success" class="form-success">
-        <h3>Thanks! We'll be in touch soon.</h3>
-        <p>We'll reach out within one business day to arrange a call.</p>
-      </div>
-      <form id="about-form">
+      <form id="about-form" method="POST" action="https://midsomer-forms.victoria-292.workers.dev/?site=midsomer-design">
+        <div class="form-hp" aria-hidden="true"><label for="af-company">Company website</label><input id="af-company" name="company_website" type="text" tabindex="-1" autocomplete="off"></div>
         <div class="form-group"><label for="af-name">Name</label><input id="af-name" name="name" type="text" autocomplete="name" required></div>
         <div class="form-row">
           <div class="form-group"><label for="af-email">Email address</label><input id="af-email" name="email" type="email" autocomplete="email" required></div>
@@ -360,10 +356,18 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
 
-  document.getElementById('about-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    this.style.display = 'none';
-    document.getElementById('about-form-success').style.display = 'block';
+  // Contact form: show a sending state while the worker handles it
+  const aboutForm = document.getElementById('about-form');
+  aboutForm.addEventListener('submit', () => {
+    const btn = aboutForm.querySelector('.form-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+  });
+  // Reset the button if the visitor comes back via the back button
+  window.addEventListener('pageshow', () => {
+    const btn = aboutForm.querySelector('.form-submit');
+    btn.disabled = false;
+    btn.textContent = 'Request a Consultation';
   });
 </script>
 </body>
