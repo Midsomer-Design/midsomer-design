@@ -191,6 +191,9 @@
     .form-submit { width: 100%; justify-content: center; margin-top: 0.4rem; padding: 1.05rem; font-size: 0.82rem; }
     .form-submit:disabled { opacity: 0.6; cursor: wait; }
     .form-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .form-group input.is-invalid, .form-group textarea.is-invalid { border-color: #c2413a; box-shadow: 0 0 0 4px rgba(194,65,58,0.12); }
+    .form-error { display: none; font-size: 0.8rem; color: #b3342d; }
+    .form-group input.is-invalid ~ .form-error { display: block; }
 
     /* FOOTER */
     footer {
@@ -309,9 +312,9 @@
     <div class="contact-form fade-up">
       <form id="about-form" method="POST" action="https://midsomer-forms.victoria-292.workers.dev/?site=midsomer-design">
         <div class="form-hp" aria-hidden="true"><label for="af-company">Company website</label><input id="af-company" name="company_website" type="text" tabindex="-1" autocomplete="off"></div>
-        <div class="form-group"><label for="af-name">Name</label><input id="af-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="form-group"><label for="af-name">Name</label><input id="af-name" name="name" type="text" autocomplete="name" required aria-describedby="af-name-error"><p class="form-error" id="af-name-error" role="alert"></p></div>
         <div class="form-row">
-          <div class="form-group"><label for="af-email">Email address</label><input id="af-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="form-group"><label for="af-email">Email address</label><input id="af-email" name="email" type="email" autocomplete="email" required aria-describedby="af-email-error"><p class="form-error" id="af-email-error" role="alert"></p></div>
           <div class="form-group"><label for="af-phone">Phone number</label><input id="af-phone" name="phone" type="tel" autocomplete="tel"></div>
         </div>
         <div class="form-group"><label for="af-site">Current website <span>(if you have one)</span></label><input id="af-site" name="website" type="text" inputmode="url" autocomplete="url" placeholder="yourbusiness.com"></div>
@@ -356,9 +359,38 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
 
-  // Contact form: show a sending state while the worker handles it
+  // Contact form: check name and email before sending, with inline messages
   const aboutForm = document.getElementById('about-form');
-  aboutForm.addEventListener('submit', () => {
+  aboutForm.noValidate = true;
+  const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/;
+  const fieldError = input => {
+    const value = input.value.trim();
+    if (input.name === 'name' && !value) return 'Please enter your name.';
+    if (input.name === 'email') {
+      if (!value) return 'Please enter your email address.';
+      if (!EMAIL_RE.test(value)) return 'Please check your email address.';
+    }
+    return '';
+  };
+  const showError = input => {
+    const msg = fieldError(input);
+    input.classList.toggle('is-invalid', !!msg);
+    input.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    input.parentElement.querySelector('.form-error').textContent = msg;
+    return !msg;
+  };
+  const checked = [...aboutForm.querySelectorAll('input[name="name"], input[name="email"]')];
+  checked.forEach(input => {
+    input.addEventListener('blur', () => { if (input.value.trim()) showError(input); });
+    input.addEventListener('input', () => { if (input.classList.contains('is-invalid')) showError(input); });
+  });
+  aboutForm.addEventListener('submit', e => {
+    const firstBad = checked.find(input => !showError(input));
+    if (firstBad) {
+      e.preventDefault();
+      firstBad.focus();
+      return;
+    }
     const btn = aboutForm.querySelector('.form-submit');
     btn.disabled = true;
     btn.textContent = 'Sending…';
