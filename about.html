@@ -217,8 +217,9 @@
       background: var(--night); color: rgba(255,255,255,0.55); border-top: 1px solid rgba(255,255,255,0.08);
       font-size: 0.78rem; letter-spacing: 0.04em;
     }
-    footer a { color: rgba(255,255,255,0.62); text-decoration: none; transition: color 0.2s; }
+    footer a { color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--mint); }
+    .footer-meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 0.5rem 1.6rem; }
     .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; letter-spacing: 0.02em; color: rgba(255,255,255,0.88); }
 
     /* ANIMATIONS */
@@ -236,6 +237,7 @@
       .contact-intro .section-title, .contact-intro .section-sub { text-align: center; }
       .contact-intro .section-sub { margin-inline: auto; }
       footer { flex-direction: column; text-align: center; }
+      .footer-meta { justify-content: center; }
     }
     @media (max-width: 800px) {
       .founder, .founder.reverse { grid-template-columns: 1fr; gap: 2rem; }
@@ -349,7 +351,13 @@
 
 <footer>
   <span class="footer-logo">Midsomer Design</span>
-  <span>© 2026 Midsomer Design. All rights reserved.</span>
+  <div class="footer-meta">
+    <span>Sydney, Australia</span>
+    <!-- ABN: replace the Xs with your number and delete the word hidden to show it -->
+    <span hidden>ABN XX XXX XXX XXX</span>
+    <a href="privacy.html">Privacy policy</a>
+    <span>© 2026 Midsomer Design. All rights reserved.</span>
+  </div>
 </footer>
 
 <script>

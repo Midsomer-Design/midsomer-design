@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy — Midsomer Design</title>
+  <meta name="description" content="How Midsomer Design collects, uses and looks after your personal information." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* same colours and spacing as the homepage */
+    :root {
+      --forest-deep: #01200b;
+      --forest: #013212;
+      --forest-mid: #024a1c;
+      --forest-light: #036b28;
+      --accent: #047a30;
+      --mint: #9fe0b4;
+      --mint-soft: #e8f3ea;
+      --cream: #fbfaf6;
+      --paper: #f3f2ec;
+      --line: #e4e2d9;
+      --ink: #14170f;
+      --ink-soft: #525a4e;
+      --night: #030a05;
+      --night-2: #06170b;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    body::after {
+      content: ''; position: fixed; inset: 0; z-index: 999; pointer-events: none; opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.09'/%3E%3C/svg%3E");
+    }
+    ::selection { background: var(--forest); color: #fff; }
+
+    /* NAV — same as the homepage */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.35rem clamp(1.2rem, 5vw, 3.5rem);
+      background: rgba(251,250,246,0.72);
+      backdrop-filter: blur(18px) saturate(180%);
+      -webkit-backdrop-filter: blur(18px) saturate(180%);
+      border-bottom: 1px solid transparent;
+      transition: padding 0.35s var(--ease), background 0.35s, border-color 0.35s, box-shadow 0.35s;
+    }
+    nav.scrolled {
+      padding-top: 0.85rem; padding-bottom: 0.85rem;
+      background: rgba(251,250,246,0.9);
+      border-bottom-color: var(--line);
+      box-shadow: 0 1px 20px rgba(1,32,11,0.05);
+    }
+    .nav-logo { display: inline-flex; align-items: center; gap: 0.65rem; text-decoration: none; }
+    .nav-mark {
+      width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0;
+      background: linear-gradient(150deg, var(--forest-light), var(--forest) 65%);
+      display: grid; place-items: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: #fff;
+      box-shadow: 0 3px 10px rgba(1,50,18,0.28);
+    }
+    .nav-word { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 600; letter-spacing: 0.02em; color: var(--forest); transition: color 0.35s; }
+    .nav-links { display: flex; gap: 1.9rem; align-items: center; }
+    .nav-links a { position: relative; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.11em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:not(.nav-cta)::after {
+      content: ''; position: absolute; left: 0; bottom: -5px; height: 1px; width: 0;
+      background: var(--forest); transition: width 0.3s var(--ease);
+    }
+    .nav-links a:not(.nav-cta):hover { color: var(--forest); }
+    .nav-links a:not(.nav-cta):hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--forest) !important; color: #fff !important;
+      padding: 0.6rem 1.35rem !important; border-radius: 999px;
+      box-shadow: 0 4px 14px rgba(1,50,18,0.22);
+      transition: background 0.25s, transform 0.2s var(--ease), box-shadow 0.25s;
+    }
+    .nav-cta:hover { background: var(--forest-mid) !important; transform: translateY(-1px); box-shadow: 0 8px 22px rgba(1,50,18,0.28); }
+    nav.on-dark { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+    nav.on-dark.scrolled { background: rgba(3,11,6,0.72); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom-color: rgba(255,255,255,0.08); box-shadow: none; }
+    nav.on-dark .nav-word { color: #fff; }
+    nav.on-dark .nav-mark { box-shadow: 0 0 0 1px rgba(255,255,255,0.2); }
+    nav.on-dark .nav-links a:not(.nav-cta) { color: rgba(255,255,255,0.75); }
+    nav.on-dark .nav-links a:not(.nav-cta):hover { color: #fff; }
+    nav.on-dark .nav-links a:not(.nav-cta)::after { background: #fff; }
+    nav.on-dark .nav-cta { background: #fff !important; color: var(--forest-deep) !important; box-shadow: none; }
+    nav.on-dark .nav-cta:hover { background: var(--mint-soft) !important; }
+
+    /* PAGE HEADER — same as Our Team */
+    .page-header {
+      position: relative; overflow: hidden; text-align: center; color: #fff;
+      padding: clamp(9rem, 20vh, 12rem) clamp(1.2rem, 5vw, 3.5rem) clamp(4rem, 8vw, 6rem);
+      background:
+        radial-gradient(60% 60% at 50% 0%, rgba(11,157,67,0.18), transparent 70%),
+        linear-gradient(180deg, var(--night-2) 0%, var(--night) 100%);
+    }
+    .page-title { margin-bottom: 1.4rem; font-size: clamp(2.6rem, 5.5vw, 4.4rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.03; }
+    .page-sub { max-width: 34rem; margin: 0 auto; font-size: 1.08rem; line-height: 1.7; font-weight: 300; color: rgba(255,255,255,0.7); text-wrap: pretty; }
+
+    /* POLICY TEXT */
+    .policy { padding: clamp(3.5rem, 7vw, 6rem) clamp(1.2rem, 5vw, 3.5rem) clamp(4.5rem, 9vw, 8rem); }
+    .policy-inner { max-width: 44rem; margin: 0 auto; }
+    .policy-updated { padding-bottom: 1.6rem; border-bottom: 1px solid var(--line); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+    .policy h2 { margin: 2.8rem 0 0.9rem; font-size: clamp(1.4rem, 2.4vw, 1.75rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.2; color: var(--forest); }
+    .policy p, .policy li { font-size: 1rem; line-height: 1.78; font-weight: 300; color: var(--ink-soft); text-wrap: pretty; }
+    .policy p { margin-top: 1rem; }
+    .policy h2 + p { margin-top: 0; }
+    .policy ul { margin: 1rem 0 0 1.2rem; }
+    .policy li + li { margin-top: 0.5rem; }
+    .policy li::marker { color: var(--accent); }
+    .policy strong { font-weight: 500; color: var(--ink); }
+    .policy a { color: var(--forest); font-weight: 400; text-decoration: underline; text-decoration-color: rgba(1,50,18,0.35); text-underline-offset: 3px; transition: text-decoration-color 0.2s; }
+    .policy a:hover { text-decoration-color: var(--forest); }
+
+    /* FOOTER — same as the homepage */
+    footer {
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.2rem 2rem;
+      padding: 2.4rem clamp(1.2rem, 5vw, 3.5rem);
+      background: var(--night); color: rgba(255,255,255,0.55); border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.78rem; letter-spacing: 0.04em;
+    }
+    footer a { color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--mint); }
+    .footer-meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 0.5rem 1.6rem; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; letter-spacing: 0.02em; color: rgba(255,255,255,0.88); }
+
+    /* RESPONSIVE */
+    @media (max-width: 980px) {
+      footer { flex-direction: column; text-align: center; }
+      .footer-meta { justify-content: center; }
+    }
+    @media (max-width: 600px) {
+      .nav-word { display: none; }
+      .nav-links { gap: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav" class="on-dark">
+  <a class="nav-logo" href="index.html">
+    <span class="nav-mark">M</span>
+    <span class="nav-word">Midsomer Design</span>
+  </a>
+  <div class="nav-links">
+    <a href="about.html">Our Team</a>
+    <a href="index.html#contact" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<header class="page-header">
+  <h1 class="page-title">Privacy policy</h1>
+  <p class="page-sub">How we collect, use and look after your personal information.</p>
+</header>
+
+<!-- When this policy changes, update the "Last updated" date below. -->
+<section class="policy">
+  <div class="policy-inner">
+    <p class="policy-updated">Last updated 5 October 2026</p>
+
+    <p>Midsomer Design (“we”, “us”) designs, builds and looks after websites for small businesses. This policy explains what personal information we collect through this website, how we use it, who else handles it, and the choices you have.</p>
+
+    <h2>What we collect</h2>
+    <p>When you send us an enquiry through the form on this website, we collect the details you give us: your <strong>name</strong> and <strong>email address</strong>, and if you choose to include them, your <strong>phone number</strong>, your <strong>current website</strong> and anything you tell us about your business.</p>
+    <p>We don’t take payments on this website, and we don’t use advertising or tracking cookies.</p>
+
+    <h2>How we use it</h2>
+    <p>We use your details to reply to your enquiry, arrange a call and, if you go ahead, provide our services to you. We don’t sell your personal information.</p>
+
+    <h2>Who else handles it</h2>
+    <p>This website relies on a few service providers, who handle information on our behalf:</p>
+    <ul>
+      <li><strong>GitHub Pages</strong> hosts this website.</li>
+      <li><strong>Cloudflare</strong> runs the service that receives the enquiry form and passes it on to us.</li>
+      <li><strong>Google Fonts</strong> supplies the fonts on this website. Your browser downloads them from Google, which receives your IP address when it does.</li>
+    </ul>
+    <p>Like most online services, these providers may keep standard technical logs, such as IP addresses and browser details, to keep their services running securely. Some of them store data outside Australia, including in the United States.</p>
+
+    <h2>How we look after it</h2>
+    <p>We take reasonable steps to protect the personal information we hold from misuse, loss and unauthorised access, and we delete it when we no longer need it.</p>
+
+    <h2>Seeing, correcting or deleting your information</h2>
+    <p>You can ask us what personal information we hold about you, and ask us to correct or delete it. Just get in touch using the <a href="index.html#contact">form on our homepage</a> and we’ll respond as soon as we can.</p>
+
+    <h2>Concerns and complaints</h2>
+    <p>If you’re unhappy with how we’ve handled your information, please contact us first so we can try to put it right. If you’re still not satisfied, you can contact the Office of the Australian Information Commissioner at <a href="https://www.oaic.gov.au">oaic.gov.au</a>.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>We may update this policy from time to time. The latest version will always be on this page.</p>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">Midsomer Design</span>
+  <div class="footer-meta">
+    <span>Sydney, Australia</span>
+    <!-- ABN: replace the Xs with your number and delete the word hidden to show it -->
+    <span hidden>ABN XX XXX XXX XXX</span>
+    <a href="privacy.html" aria-current="page">Privacy policy</a>
+    <span>© 2026 Midsomer Design. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+  // Nav: compact once scrolled, white while it sits over a dark section
+  const navEl = document.getElementById('nav');
+  const darkSections = document.querySelectorAll('.page-header, footer');
+  function onScroll() {
+    navEl.classList.toggle('scrolled', window.scrollY > 20);
+    const mid = navEl.offsetHeight / 2;
+    navEl.classList.toggle('on-dark', Array.from(darkSections).some(s => {
+      const r = s.getBoundingClientRect();
+      return r.top <= mid && r.bottom > mid;
+    }));
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+</script>
+</body>
+</html>
