@@ -200,7 +200,6 @@
     .mk-h em { font-style: italic; }
     .mk-text { font-size: 0.95em; line-height: 1.6; max-width: 24em; }
     .mk-ph { position: relative; overflow: hidden; }
-    .mk-ph > svg { position: absolute; left: 50%; top: 50%; width: 20%; transform: translate(-50%, -50%); color: rgba(255,255,255,0.6); }
 
     .m-cafe { background: #f3ece1; color: #3b2a1f; }
     .m-cafe .mk-logo { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.6em; }
@@ -212,7 +211,7 @@
     .m-cafe .mk-h em { color: #b0603a; }
     .m-cafe .mk-text { opacity: 0.75; margin-bottom: 2em; }
     .m-cafe-copy .mk-btn { font-size: 0.9em; }
-    .m-cafe-ph { margin: 0 2.4em 2.4em 0; border-radius: 1em; background: radial-gradient(45% 40% at 60% 38%, rgba(255,236,208,0.55), transparent 70%), linear-gradient(165deg, #d9a676 0%, #a8683f 55%, #6e4127 100%); }
+    .m-cafe-ph { margin: 0 2.4em 2.4em 0; border-radius: 1em; background: #b88862 url(images/showcase/little-fern-breakfast-v2.jpg) center 56% / cover no-repeat; }
     .m-cafe-chip { position: absolute; left: 1.4em; bottom: 1.4em; padding: 0.65em 1.1em; border-radius: 999px; background: #f3ece1; font-size: 0.75em; font-weight: 500; }
 
     .m-rest { background: #16120f; color: #efe6d6; }
@@ -221,8 +220,7 @@
     .m-rest .mk-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5em; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; }
     .m-rest .mk-nav .mk-btn { justify-self: end; border: 1px solid #d4b17a; color: #d4b17a; border-radius: 0; }
     .m-rest-body { flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr 1fr; }
-    .m-rest-ph { background: radial-gradient(38% 38% at 50% 52%, #c98d4e 0%, #7a4a22 45%, transparent 75%), linear-gradient(160deg, #3a2616, #120d0a); }
-    .m-rest-ph::before { content: ''; position: absolute; left: 50%; top: 52%; width: 44%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; border: 0.15em solid rgba(239,230,214,0.3); }
+    .m-rest-ph { background: #332317 url(images/showcase/osteria-pasta-v2.jpg) center 58% / cover no-repeat; }
     .m-rest-copy { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 2em 3.2em; }
     .m-rest .mk-eyebrow { color: #d4b17a; }
     .m-rest .mk-h { font-family: 'Cormorant Garamond', serif; font-size: 3.9em; font-weight: 400; margin-bottom: 0.5em; }
@@ -245,7 +243,7 @@
     .m-trade .mk-text { color: #56627a; margin-bottom: 1.6em; }
     .m-trade-tags { display: flex; flex-wrap: wrap; gap: 0.5em; }
     .m-trade-tags span { font-size: 0.72em; font-weight: 500; padding: 0.55em 0.9em; border-radius: 0.35em; background: #f1f4f8; }
-    .m-trade-ph { background: linear-gradient(150deg, #37577d 0%, #13233a 100%); clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%); }
+    .m-trade-ph { background: #37577d url(images/showcase/ridgeline-plumber-v2.jpg) 58% 45% / cover no-repeat; clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%); }
     .m-trade-chip { position: absolute; right: 1.6em; bottom: 1.6em; background: #fff; color: #13233a; font-size: 0.75em; font-weight: 700; padding: 0.7em 1.1em; border-radius: 0.35em; }
 
     .m-fit { background: #0e0e0d; color: #f1f1ec; }
@@ -274,27 +272,38 @@
     .m-salon-grid .mk-ph:nth-child(2) { background: linear-gradient(175deg, #d9a3a6, #8c5165); }
     .m-salon-grid .mk-ph:nth-child(3) { margin-top: 3em; background: linear-gradient(175deg, #efd7c6, #c49f84); }
 
-    .m-acct { background: #10233a; color: #eef2f7; }
-    .m-acct .mk-nav { border-bottom: 1px solid rgba(238,242,247,0.1); }
-    .m-acct .mk-logo { display: flex; align-items: center; gap: 0.6em; font-weight: 600; font-size: 1.05em; }
-    .m-acct .mk-logo i { font-style: normal; width: 1.8em; height: 1.8em; display: grid; place-items: center; background: #8fd3c7; color: #10233a; border-radius: 0.35em; font-family: 'Fraunces', serif; font-weight: 500; }
-    .m-acct .mk-links { opacity: 0.65; }
-    .m-acct .mk-btn { background: #8fd3c7; color: #10233a; border-radius: 0.4em; font-weight: 600; }
-    .m-acct-body { flex: 1; min-height: 0; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 2.6em; padding: 3.4em 2.4em 0 3.2em; }
-    .m-acct .mk-eyebrow { color: #8fd3c7; }
-    .m-acct .mk-h { font-size: 3.7em; font-weight: 600; line-height: 1.04; letter-spacing: -0.035em; margin-bottom: 0.45em; }
-    .m-acct .mk-h em { font-family: 'Fraunces', serif; font-weight: 400; color: #8fd3c7; letter-spacing: -0.01em; }
-    .m-acct .mk-text { opacity: 0.7; margin-bottom: 1.8em; }
-    .m-acct-actions { display: flex; align-items: center; gap: 1.6em; }
-    .m-acct-actions .mk-btn { font-size: 0.85em; }
-    .m-acct-link { font-size: 0.85em; font-weight: 500; opacity: 0.85; }
-    .m-acct-panel { display: flex; flex-direction: column; gap: 1em; }
-    .m-acct-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.8em; padding: 1.3em 1.4em; }
-    .m-acct-bars { display: flex; align-items: flex-end; gap: 0.7em; height: 8.5em; }
-    .m-acct-bars i { flex: 1; height: var(--h); background: rgba(143,211,199,0.28); border-radius: 0.3em 0.3em 0 0; }
-    .m-acct-bars i:last-child { background: #8fd3c7; }
-    .m-acct-list p { font-size: 0.85em; padding: 0.5em 0; }
-    .m-acct-list p + p { border-top: 1px solid rgba(255,255,255,0.08); }
+    /* Accounting example — an editorial identity, with a real advisory setting. */
+    .m-acct { background: #f6f3eb; color: #1c2c3a; }
+    .m-acct .mk-nav { padding: 1.5em 3em; border-bottom: 1px solid #dedfd8; }
+    .m-acct .mk-logo { display: flex; align-items: center; gap: 0.75em; font-family: 'Cormorant Garamond', serif; font-size: 1.7em; font-weight: 600; letter-spacing: -0.03em; line-height: 0.95; }
+    .m-acct .mk-logo i { display: grid; place-items: center; width: 1.45em; height: 1.6em; border: 1px solid #1c2c3a; font-size: 1.05em; font-style: normal; font-weight: 400; }
+    .m-acct-wordmark { display: flex; flex-direction: column; gap: 0.5em; }
+    .m-acct-wordmark small { font-family: 'DM Sans', sans-serif; font-size: 0.32em; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; }
+    .m-acct .mk-links { color: #4e5a60; gap: 2em; font-size: 0.9em; }
+    .m-acct .mk-btn { background: #1c2c3a; color: #f6f3eb; border-radius: 0; font-weight: 500; padding: 0.9em 1.3em; }
+    .m-acct .mk-nav .mk-btn { font-size: 0.88em; }
+    .m-acct-body { flex: 1; min-height: 0; display: grid; grid-template-columns: 1.1fr 0.9fr; }
+    .m-acct-copy { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 2.2em 2em 2.3em 3.2em; }
+    .m-acct .mk-eyebrow { display: flex; align-items: center; gap: 0.8em; color: #637164; margin-bottom: 1.5em; font-size: 0.66em; letter-spacing: 0.17em; }
+    .m-acct-copy .mk-eyebrow::before { content: ''; width: 2em; height: 1px; background: currentColor; }
+    .m-acct .mk-h { font-family: 'Cormorant Garamond', serif; font-size: 5.1em; font-weight: 500; line-height: 0.91; letter-spacing: -0.045em; margin-bottom: 0.32em; }
+    .m-acct .mk-h em { color: #64785e; font-weight: 400; }
+    .m-acct .mk-text { color: #606b70; font-size: 0.89em; line-height: 1.6; margin-bottom: 1.7em; }
+    .m-acct-actions { display: flex; align-items: center; gap: 1.4em; }
+    .m-acct-actions .mk-btn { font-size: 0.78em; }
+    .m-acct-link { font-size: 0.72em; padding-bottom: 0.3em; border-bottom: 1px solid #a6afa7; }
+    .m-acct-photo { position: relative; min-height: 0; margin: 1.8em 2.4em 1.8em 0; overflow: hidden; background: #ddd8cb url(images/showcase/hale-advisory-v2.jpg) center 43% / cover no-repeat; }
+    .m-acct-photo::after { content: ''; position: absolute; inset: 48% 0 0; background: linear-gradient(transparent, rgba(18,33,41,0.8)); }
+    .m-acct-caption { position: absolute; z-index: 1; left: 1.5em; right: 1.5em; bottom: 1.5em; padding-top: 1em; border-top: 1px solid rgba(255,255,255,0.4); color: #fff; }
+    .m-acct-caption small { display: block; font-size: 0.58em; letter-spacing: 0.17em; text-transform: uppercase; margin-bottom: 0.6em; }
+    .m-acct-caption p { font-family: 'Cormorant Garamond', serif; font-size: 1.9em; line-height: 1.03; }
+    .m-acct-services { display: grid; grid-template-columns: repeat(3, 1fr); padding: 1.25em 3.2em; background: #1c2c3a; color: #f6f3eb; flex-shrink: 0; }
+    .m-acct-service { display: flex; align-items: center; gap: 1em; padding: 0.6em 1.3em; border-left: 1px solid rgba(246,243,235,0.2); }
+    .m-acct-service:first-child { border: 0; padding-left: 0; }
+    .m-acct-service:last-child { padding-right: 0; }
+    .m-acct-service small { font-size: 0.65em; color: #b5c4ad; }
+    .m-acct-service p { font-size: 0.78em; }
+    .m-acct-service b { font-size: 1.1em; margin-left: auto; font-weight: 400; color: #b5c4ad; }
 
     .m-shop { background: #fbf6f0; color: #2d3e32; }
     .m-shop .mk-logo { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.6em; }
@@ -810,7 +819,6 @@
               <span class="mk-btn">View the menu</span>
             </div>
             <div class="mk-ph m-cafe-ph">
-              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 26h32v12a14 14 0 0 1-14 14h-4a14 14 0 0 1-14-14z"/><path d="M44 30h3a6 6 0 0 1 0 12h-4"/><path d="M22 8c-2 3 2 6 0 10M30 8c-2 3 2 6 0 10M38 8c-2 3 2 6 0 10"/></svg>
               <span class="m-cafe-chip">Open today · 6:30am – 3pm</span>
             </div>
           </div>
@@ -851,7 +859,6 @@
               <div class="m-trade-tags"><span>Blocked drains</span><span>Hot water</span><span>Leaks</span><span>Renovations</span></div>
             </div>
             <div class="mk-ph m-trade-ph">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
               <span class="m-trade-chip">Licensed &amp; insured</span>
             </div>
           </div>
@@ -895,24 +902,25 @@
       <div class="showcase-card" role="group" aria-roledescription="slide" aria-label="Accounting firm website example" data-type="Professional services">
         <div class="mock m-acct" aria-hidden="true">
           <div class="mk-nav">
-            <span class="mk-logo"><i>H</i>Hale &amp; Partners</span>
-            <span class="mk-links"><span>Services</span><span>Industries</span><span>Resources</span></span>
-            <span class="mk-btn">Book a consult</span>
+            <span class="mk-logo"><i>H</i><span class="m-acct-wordmark">Hale &amp; Partners<small>Accountants &amp; advisers</small></span></span>
+            <span class="mk-links"><span>Our expertise</span><span>Our people</span><span>Insights</span></span>
+            <span class="mk-btn">Let's talk &nbsp;↗</span>
           </div>
           <div class="m-acct-body">
             <div class="m-acct-copy">
-              <p class="mk-eyebrow">Accounting &amp; advisory</p>
-              <p class="mk-h">Clear numbers for <em>growing</em> businesses.</p>
-              <p class="mk-text">Tax, BAS and bookkeeping from a local team who actually pick up the phone.</p>
-              <div class="m-acct-actions"><span class="mk-btn">Get in touch</span><span class="m-acct-link">Our services →</span></div>
+              <p class="mk-eyebrow">Accounting with perspective</p>
+              <p class="mk-h">A clearer view.<br>A stronger<br><em>business.</em></p>
+              <p class="mk-text">Practical accounting, tax and advice.<br>For the business you're building.</p>
+              <div class="m-acct-actions"><span class="mk-btn">Start a conversation &nbsp;↗</span><span class="m-acct-link">Meet your team</span></div>
             </div>
-            <div class="m-acct-panel">
-              <div class="m-acct-card">
-                <p class="mk-eyebrow">Quarterly overview</p>
-                <div class="m-acct-bars"><i style="--h:36%"></i><i style="--h:50%"></i><i style="--h:44%"></i><i style="--h:63%"></i><i style="--h:72%"></i><i style="--h:92%"></i></div>
-              </div>
-              <div class="m-acct-card m-acct-list"><p>✓&nbsp; Tax returns</p><p>✓&nbsp; BAS &amp; GST</p><p>✓&nbsp; Bookkeeping</p></div>
+            <div class="m-acct-photo">
+              <div class="m-acct-caption"><small>More than the numbers</small><p>A partner in<br>your next chapter.</p></div>
             </div>
+          </div>
+          <div class="m-acct-services">
+            <div class="m-acct-service"><small>01</small><p>Tax &amp; compliance</p><b>↗</b></div>
+            <div class="m-acct-service"><small>02</small><p>Bookkeeping</p><b>↗</b></div>
+            <div class="m-acct-service"><small>03</small><p>Business advisory</p><b>↗</b></div>
           </div>
         </div>
       </div>
@@ -1155,7 +1163,6 @@
                     <span class="mk-btn">View the menu</span>
                   </div>
                   <div class="mk-ph m-cafe-ph">
-                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 26h32v12a14 14 0 0 1-14 14h-4a14 14 0 0 1-14-14z"/><path d="M44 30h3a6 6 0 0 1 0 12h-4"/><path d="M22 8c-2 3 2 6 0 10M30 8c-2 3 2 6 0 10M38 8c-2 3 2 6 0 10"/></svg>
                     <span class="m-cafe-chip">Open today · 6:30am – 3pm</span>
                   </div>
                 </div>
@@ -1201,7 +1208,6 @@
                     <div class="m-trade-tags"><span>Blocked drains</span><span>Hot water</span><span>Leaks</span><span>Renovations</span></div>
                   </div>
                   <div class="mk-ph m-trade-ph">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
                     <span class="m-trade-chip">Licensed &amp; insured</span>
                   </div>
                 </div>
