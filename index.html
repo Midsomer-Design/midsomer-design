@@ -594,6 +594,7 @@
     .pricing-plan { margin-bottom: 1.4rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
     .pricing-price { font-size: 3.5rem; font-weight: 700; line-height: 1; letter-spacing: -0.045em; color: var(--forest); }
     .pricing-period { margin: 0.55rem 0 1.9rem; font-size: 0.85rem; font-weight: 300; color: var(--ink-soft); }
+    .pricing-desc { min-height: calc(1.55em * 2); margin: -0.8rem 0 1.7rem; font-size: 0.92rem; font-weight: 300; line-height: 1.55; color: var(--ink-soft); }
     .pricing-features { flex: 1; list-style: none; margin-bottom: 2.2rem; border-top: 1px solid var(--line); }
     .pricing-features li { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.78rem 0; border-bottom: 1px solid var(--line); font-size: 0.92rem; font-weight: 300; line-height: 1.45; color: var(--ink); }
     .pricing-features li::before {
@@ -615,6 +616,7 @@
     .pricing-card.featured .pricing-plan { color: var(--mint); }
     .pricing-card.featured .pricing-price { color: #fff; }
     .pricing-card.featured .pricing-period { color: rgba(255,255,255,0.6); }
+    .pricing-card.featured .pricing-desc { color: rgba(255,255,255,0.72); }
     .pricing-card.featured .pricing-features { border-top-color: rgba(255,255,255,0.12); }
     .pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.86); border-bottom-color: rgba(255,255,255,0.12); }
     .pricing-card.featured .pricing-features li::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239fe0b4' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5 5L20 6.5'/%3E%3C/svg%3E"); }
@@ -797,7 +799,7 @@
   <div class="hero-copy fade-up">
     <h1 class="hero-title">Your business<br>deserves a <em>great</em> website.</h1>
     <p class="hero-sub">Modern websites for small businesses with <strong>no upfront cost</strong>.<br>Just a simple monthly subscription.</p>
-    <a href="#contact" class="btn-primary btn-light">Book a Free Consultation</a>
+    <a href="#contact" class="btn-primary btn-light">Book a free call</a>
   </div>
 
   <!-- SHOWCASE: each card below is a placeholder mock-up of a type of site we build.
@@ -1049,7 +1051,7 @@
           <tr><th scope="row">Upfront cost</th><td>A big one off bill</td><td class="ct-us">$0 upfront</td></tr>
           <tr><th scope="row">Design</th><td>Often a template</td><td class="ct-us">Custom designed for you</td></tr>
           <tr><th scope="row">Hosting &amp; SSL</th><td>Often an extra cost</td><td class="ct-us">Included</td></tr>
-          <tr><th scope="row">Updates &amp; changes</th><td>Often billed per change</td><td class="ct-us">Included in your plan</td></tr>
+          <tr><th scope="row">Updates &amp; changes</th><td>Often billed per change</td><td class="ct-us">Monthly updates included</td></tr>
           <tr><th scope="row">Ongoing care</th><td>Often left to you</td><td class="ct-us">We look after it</td></tr>
         </tbody>
       </table>
@@ -1257,7 +1259,7 @@
       </div>
 
       <div class="work-cta">
-        <a href="#contact" class="btn-primary btn-light">Book a Free Consultation</a>
+        <a href="#contact" class="btn-primary btn-light">Book a free call</a>
       </div>
     </div>
   </div>
@@ -1275,6 +1277,7 @@
         <p class="pricing-plan">Refresh</p>
         <div class="pricing-price">$79</div>
         <p class="pricing-period">per month, no lock-in</p>
+        <p class="pricing-desc">For businesses with a website that needs a refresh.</p>
         <ul class="pricing-features">
           <li>Redesign of your existing website</li>
           <li>Up to 5 pages</li>
@@ -1289,6 +1292,7 @@
         <p class="pricing-plan">New website</p>
         <div class="pricing-price">$99</div>
         <p class="pricing-period">per month, no lock-in</p>
+        <p class="pricing-desc">For new businesses, planned and built from the ground up.</p>
         <ul class="pricing-features">
           <li>Custom website built from scratch</li>
           <li>Up to 5 pages</li>
@@ -1303,6 +1307,7 @@
         <p class="pricing-plan">Growth</p>
         <div class="pricing-price">$249</div>
         <p class="pricing-period">per month, no lock-in</p>
+        <p class="pricing-desc">For businesses ready to take bookings or sell online.</p>
         <ul class="pricing-features">
           <li>Everything in New website</li>
           <li>Up to 15 pages</li>
@@ -1336,14 +1341,18 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" type="button" aria-expanded="false"><span class="faq-num">03</span><span class="faq-q-text">How long does it take to build my website?</span><span class="faq-icon" aria-hidden="true"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>Most websites are designed, built, and launched within 2–3 weeks from our initial consultation. Larger projects may take a little longer.</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>Most websites are designed, built, and launched within 2–3 weeks from our first call. Larger projects may take a little longer.</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" type="button" aria-expanded="false"><span class="faq-num">04</span><span class="faq-q-text">Can I cancel my subscription?</span><span class="faq-icon" aria-hidden="true"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>Yes. You can cancel at any time. If you cancel, your website will be taken offline.</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>Yes. You can cancel at any time. If you cancel, your website will be taken offline, but your domain name always stays yours.</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-num">05</span><span class="faq-q-text">What kinds of businesses do you work with?</span><span class="faq-icon" aria-hidden="true"></span></button>
+        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-num">05</span><span class="faq-q-text">Who owns my domain and website?</span><span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>Your domain name is always yours. We never own it. The website we design, build and look after for you is owned by Midsomer Design.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-num">06</span><span class="faq-q-text">What kinds of businesses do you work with?</span><span class="faq-icon" aria-hidden="true"></span></button>
         <div class="faq-a"><div class="faq-a-inner"><p>We work with all kinds of small businesses from cafes, tradespeople, retail shops, to service providers and consultants. If you need a professional online presence, we can help.</p></div></div>
       </div>
     </div>
@@ -1353,7 +1362,7 @@
 <section class="contact" id="contact">
   <div class="contact-inner">
     <div class="contact-intro fade-up">
-      <h2 class="section-title">Book your free<br>20-minute consultation</h2>
+      <h2 class="section-title">Book your free<br>20-minute call</h2>
       <p class="section-sub">Tell us a bit about your business and we'll be in touch to arrange a quick call. No commitment required.</p>
       <ul class="tick-list">
         <li>A relaxed chat, with no pressure</li>
@@ -1370,7 +1379,7 @@
       </div>
       <div class="form-group"><label for="cf-site">Current website <span>(if you have one)</span></label><input id="cf-site" name="website" type="text" inputmode="url" autocomplete="url" placeholder="yourbusiness.com"></div>
       <div class="form-group"><label for="cf-about">Tell us about your business</label><textarea id="cf-about" name="message" placeholder="What does your business do? What are you hoping to achieve with a new website?"></textarea></div>
-      <button class="btn-primary form-submit" type="submit">Request a Consultation</button>
+      <button class="btn-primary form-submit" type="submit">Book a free call</button>
     </form>
   </div>
 </section>
