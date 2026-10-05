@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Our Team — Midsomer Design</title>
   <meta name="description" content="Meet the founders of Midsomer Design, building great websites for small businesses with no upfront cost." />
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Link previews (iMessage, Facebook, LinkedIn…). og-image.jpg is 1200×630. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Midsomer Design">
+  <meta property="og:title" content="Our Team — Midsomer Design">
+  <meta property="og:description" content="Meet the founders of Midsomer Design, building great websites for small businesses with no upfront cost.">
+  <meta property="og:url" content="https://www.midsomerdesign.com/about.html">
+  <meta property="og:image" content="https://www.midsomerdesign.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Midsomer Design: Your business deserves a great website.">
+  <meta property="og:locale" content="en_AU">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
@@ -26,11 +40,13 @@
       --line: #e4e2d9;
       --ink: #14170f;
       --ink-soft: #525a4e;
+      --ink-muted: #6b7268; /* lightest grey that still passes 4.5:1 on cream and white */
       --night: #030a05;
       --night-2: #06170b;
       --r-sm: 10px;
       --r-lg: 22px;
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --shadow-lg: 0 40px 90px rgba(1,32,11,0.18);
     }
 
     html { scroll-behavior: smooth; }
@@ -179,13 +195,13 @@
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
     .form-group { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.1rem; }
     .form-group label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-soft); }
-    .form-group label span { font-weight: 400; letter-spacing: 0.02em; text-transform: none; color: #8a9185; }
+    .form-group label span { font-weight: 400; letter-spacing: 0.02em; text-transform: none; color: var(--ink-muted); }
     .form-group input, .form-group textarea {
       padding: 0.85rem 1rem; border: 1px solid var(--line); border-radius: var(--r-sm); outline: none; resize: none;
       font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--ink); background: #fff;
       transition: border-color 0.25s, box-shadow 0.25s;
     }
-    .form-group input::placeholder, .form-group textarea::placeholder { color: #a3aa9d; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--ink-muted); }
     .form-group input:focus, .form-group textarea:focus { border-color: var(--forest); box-shadow: 0 0 0 4px rgba(11,157,67,0.12); }
     .form-group textarea { min-height: 110px; }
     .form-submit { width: 100%; justify-content: center; margin-top: 0.4rem; padding: 1.05rem; font-size: 0.82rem; }
@@ -195,15 +211,29 @@
     .form-error { display: none; font-size: 0.8rem; color: #b3342d; }
     .form-group input.is-invalid ~ .form-error { display: block; }
 
+    /* THANK-YOU POPUP — same as the homepage */
+    .thanks-dialog {
+      width: min(440px, calc(100% - 32px)); margin: auto; padding: clamp(2rem, 5vw, 2.8rem) clamp(1.5rem, 5vw, 2.4rem) clamp(1.6rem, 4vw, 2.2rem);
+      border: 0; border-radius: var(--r-lg); background: var(--cream); color: var(--ink); text-align: center; box-shadow: var(--shadow-lg);
+    }
+    .thanks-dialog::backdrop { background: rgba(1,20,8,0.55); backdrop-filter: blur(4px); }
+    .thanks-dialog[open] { animation: thanks-in 0.35s cubic-bezier(.2,.8,.2,1); }
+    @keyframes thanks-in { from { opacity: 0; transform: translateY(12px) scale(0.97); } }
+    .thanks-icon { display: grid; place-items: center; width: 56px; height: 56px; margin: 0 auto 1.2rem; border-radius: 50%; background: var(--mint-soft); color: var(--accent); }
+    .thanks-dialog h3 { margin-bottom: 0.6rem; font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; color: var(--forest); }
+    .thanks-dialog p { margin-bottom: 1.6rem; font-size: 0.95rem; line-height: 1.6; color: var(--ink-soft); }
+    .thanks-dialog .btn-primary { width: 100%; justify-content: center; padding: 0.95rem; font-size: 0.82rem; }
+
     /* FOOTER */
     footer {
       display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.2rem 2rem;
       padding: 2.4rem clamp(1.2rem, 5vw, 3.5rem);
-      background: var(--night); color: rgba(255,255,255,0.45); border-top: 1px solid rgba(255,255,255,0.08);
+      background: var(--night); color: rgba(255,255,255,0.55); border-top: 1px solid rgba(255,255,255,0.08);
       font-size: 0.78rem; letter-spacing: 0.04em;
     }
-    footer a { color: rgba(255,255,255,0.62); text-decoration: none; transition: color 0.2s; }
+    footer a { color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--mint); }
+    .footer-meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 0.5rem 1.6rem; }
     .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; letter-spacing: 0.02em; color: rgba(255,255,255,0.88); }
 
     /* ANIMATIONS */
@@ -221,6 +251,7 @@
       .contact-intro .section-title, .contact-intro .section-sub { text-align: center; }
       .contact-intro .section-sub { margin-inline: auto; }
       footer { flex-direction: column; text-align: center; }
+      .footer-meta { justify-content: center; }
     }
     @media (max-width: 800px) {
       .founder, .founder.reverse { grid-template-columns: 1fr; gap: 2rem; }
@@ -301,7 +332,7 @@
 <section class="contact" id="contact">
   <div class="contact-inner">
     <div class="contact-intro fade-up">
-      <h2 class="section-title">Book your free<br>20-minute consultation</h2>
+      <h2 class="section-title">Book your free<br>20-minute call</h2>
       <p class="section-sub">Tell us a bit about your business and we'll be in touch to arrange a quick call. No commitment required.</p>
       <ul class="tick-list">
         <li>A relaxed chat, with no pressure</li>
@@ -319,15 +350,28 @@
         </div>
         <div class="form-group"><label for="af-site">Current website <span>(if you have one)</span></label><input id="af-site" name="website" type="text" inputmode="url" autocomplete="url" placeholder="yourbusiness.com"></div>
         <div class="form-group"><label for="af-about">Tell us about your business</label><textarea id="af-about" name="message" placeholder="What does your business do? What are you hoping to achieve with a new website?"></textarea></div>
-        <button type="submit" class="btn-primary form-submit">Request a Consultation</button>
+        <button type="submit" class="btn-primary form-submit">Book a free call</button>
       </form>
     </div>
   </div>
 </section>
 
+<dialog class="thanks-dialog" id="thanks-dialog" aria-labelledby="thanks-title">
+  <div class="thanks-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+  <h3 id="thanks-title">Thanks for your enquiry!</h3>
+  <p>We've received your details and will be in touch shortly to arrange your free call.</p>
+  <form method="dialog"><button class="btn-primary" type="submit">Close</button></form>
+</dialog>
+
 <footer>
   <span class="footer-logo">Midsomer Design</span>
-  <span>© 2026 Midsomer Design. All rights reserved.</span>
+  <div class="footer-meta">
+    <span>Sydney, Australia</span>
+    <!-- ABN: replace the Xs with your number and delete the word hidden to show it -->
+    <span hidden>ABN XX XXX XXX XXX</span>
+    <a href="privacy.html">Privacy policy</a>
+    <span>© 2026 Midsomer Design. All rights reserved.</span>
+  </div>
 </footer>
 
 <script>
@@ -380,27 +424,36 @@
     return !msg;
   };
   const checked = [...aboutForm.querySelectorAll('input[name="name"], input[name="email"]')];
+  const submitBtn = aboutForm.querySelector('.form-submit');
+  const submitLabel = submitBtn.textContent;
   checked.forEach(input => {
     input.addEventListener('blur', () => { if (input.value.trim()) showError(input); });
     input.addEventListener('input', () => { if (input.classList.contains('is-invalid')) showError(input); });
   });
   aboutForm.addEventListener('submit', e => {
-    const firstBad = checked.find(input => !showError(input));
-    if (firstBad) {
+    // Check every field so all the messages show at once, then focus the first problem
+    const bad = checked.filter(input => !showError(input));
+    if (bad.length) {
       e.preventDefault();
-      firstBad.focus();
+      bad[0].focus();
       return;
     }
-    const btn = aboutForm.querySelector('.form-submit');
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
   });
   // Reset the button if the visitor comes back via the back button
   window.addEventListener('pageshow', () => {
-    const btn = aboutForm.querySelector('.form-submit');
-    btn.disabled = false;
-    btn.textContent = 'Request a Consultation';
+    submitBtn.disabled = false;
+    submitBtn.textContent = submitLabel;
   });
+
+  // Show the thank-you popup if the worker sends the visitor back here with ?sent=1
+  const params = new URLSearchParams(location.search);
+  if (params.has('sent')) {
+    document.getElementById('thanks-dialog').showModal();
+    params.delete('sent');
+    history.replaceState(null, '', location.pathname + (params.toString() ? '?' + params : '') + location.hash);
+  }
 </script>
 </body>
 </html>
