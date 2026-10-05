@@ -26,6 +26,7 @@
       --line: #e4e2d9;
       --ink: #14170f;
       --ink-soft: #525a4e;
+      --ink-muted: #6b7268; /* lightest grey that still passes 4.5:1 on cream and white */
       --night: #030a05;
       --night-2: #06170b;
       --r-sm: 10px;
@@ -180,13 +181,13 @@
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
     .form-group { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.1rem; }
     .form-group label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-soft); }
-    .form-group label span { font-weight: 400; letter-spacing: 0.02em; text-transform: none; color: #8a9185; }
+    .form-group label span { font-weight: 400; letter-spacing: 0.02em; text-transform: none; color: var(--ink-muted); }
     .form-group input, .form-group textarea {
       padding: 0.85rem 1rem; border: 1px solid var(--line); border-radius: var(--r-sm); outline: none; resize: none;
       font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--ink); background: #fff;
       transition: border-color 0.25s, box-shadow 0.25s;
     }
-    .form-group input::placeholder, .form-group textarea::placeholder { color: #a3aa9d; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--ink-muted); }
     .form-group input:focus, .form-group textarea:focus { border-color: var(--forest); box-shadow: 0 0 0 4px rgba(11,157,67,0.12); }
     .form-group textarea { min-height: 110px; }
     .form-submit { width: 100%; justify-content: center; margin-top: 0.4rem; padding: 1.05rem; font-size: 0.82rem; }
@@ -213,7 +214,7 @@
     footer {
       display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.2rem 2rem;
       padding: 2.4rem clamp(1.2rem, 5vw, 3.5rem);
-      background: var(--night); color: rgba(255,255,255,0.45); border-top: 1px solid rgba(255,255,255,0.08);
+      background: var(--night); color: rgba(255,255,255,0.55); border-top: 1px solid rgba(255,255,255,0.08);
       font-size: 0.78rem; letter-spacing: 0.04em;
     }
     footer a { color: rgba(255,255,255,0.62); text-decoration: none; transition: color 0.2s; }
