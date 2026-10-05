@@ -774,7 +774,7 @@
       .paths-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 700px) {
-      .showcase-stage { --card-w: 78vw; --spread: 0.9; }
+      .showcase-stage { --card-w: min(78vw, 420px); --spread: 0.9; height: calc(var(--card-w) * 1.25); }
       .showcase-card { border-radius: 8px; }
       .path { padding: 0.5rem 0.5rem 2rem; }
       .path-body { padding: 1.6rem 1.2rem 0; }
@@ -791,6 +791,121 @@
       .faq-num { min-width: 1.6rem; }
       .faq-a p { padding: 0 0 1.5rem 2.5rem; }
       .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* Example sites on phones: a taller 4:5 frame showing each site's mobile layout, so the text is
+       readable instead of a shrunken desktop page. Like a phone screenshot, anything below the
+       frame is cut off. */
+    @media (max-width: 700px) {
+      .showcase-card, .ba-stage { aspect-ratio: 4 / 5; }
+      .ba-window { max-width: 420px; margin-inline: auto; }
+      .mock { font-size: 3.6cqw; }
+      .mk-nav { gap: 1em; padding: 1.05em 1.9em; font-size: 0.85em; }
+      .mk-links { display: none; }
+      .mk-eyebrow { font-size: 0.78em; }
+      .mk-text { font-size: 1em; line-height: 1.55; }
+      /* menu icons standing in for the hidden nav links */
+      .m-trade .mk-nav::after, .m-salon .mk-nav::before {
+        content: ''; flex-shrink: 0; width: 1.6em; height: 1.1em;
+        background: linear-gradient(currentColor 0 0) top / 100% 0.14em no-repeat, linear-gradient(currentColor 0 0) center / 100% 0.14em no-repeat, linear-gradient(currentColor 0 0) bottom / 100% 0.14em no-repeat;
+      }
+
+      .m-cafe-body, .m-rest-body, .m-trade-body, .m-acct-body { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+      .m-cafe-copy { padding: 1.2em 1.6em 1.7em; }
+      .m-cafe .mk-eyebrow { margin-bottom: 1.1em; }
+      .m-cafe .mk-h { font-size: 2.75em; margin-bottom: 0.35em; }
+      .m-cafe .mk-text { margin-bottom: 1.4em; }
+      .m-cafe-copy .mk-btn { font-size: 0.95em; }
+      .m-cafe-ph { margin: 0 1.6em; border-radius: 1em 1em 0 0; }
+      .m-cafe-chip { left: 1.1em; bottom: 1.1em; font-size: 0.85em; }
+
+      .m-rest .mk-nav { display: flex; }
+      .m-rest .mk-logo { font-size: 1.35em; letter-spacing: 0.24em; }
+      .m-rest-body { grid-template-rows: 12.5em 1fr; }
+      .m-rest-copy { justify-content: flex-start; padding: 1.6em; }
+      .m-rest .mk-h { font-size: 2.8em; margin-bottom: 0.45em; }
+      .m-rest .mk-h em { display: block; }
+      .m-rest-copy .mk-btn { font-size: 0.82em; }
+      .m-rest-hours { font-size: 0.85em; opacity: 0.7; }
+
+      .m-trade-bar { font-size: 0.72em; }
+      .m-trade .mk-nav .mk-btn { display: none; }
+      .m-trade-copy { justify-content: flex-start; padding: 1.4em 1.6em 1.6em; }
+      .m-trade .mk-h { font-size: 4.3em; }
+      .m-trade .mk-text { margin-bottom: 1.2em; }
+      .m-trade-tags span { font-size: 0.8em; }
+      .m-trade-ph { clip-path: polygon(0 14%, 100% 0, 100% 100%, 0 100%); background-position: 58% 12%; }
+      .m-trade-chip { right: 1.2em; bottom: 1.2em; font-size: 0.85em; }
+
+      .m-fit-head { flex-direction: column; align-items: flex-start; gap: 0.9em; padding: 1.1em 1.6em 1.5em; }
+      .m-fit .mk-h { font-size: 4.6em; }
+      .m-fit .mk-text { max-width: none; padding-bottom: 0; }
+      .m-fit-grid { grid-template-columns: 1fr; gap: 0.6em; padding: 0 1.6em 1.6em; }
+      .m-fit-grid .mk-ph { border-radius: 0.6em; }
+      .m-fit-grid .mk-ph span { left: 1.3em; top: 1.1em; font-size: 0.8em; }
+
+      .m-salon .mk-logo { font-size: 1.9em; }
+      .m-salon-hero { padding: 1.6em 1.4em 2em; }
+      .m-salon .mk-h { font-size: 3.3em; text-wrap: balance; }
+      .m-salon-grid { gap: 0.8em; padding: 0 1.6em; }
+      .m-salon-grid .mk-ph:nth-child(1), .m-salon-grid .mk-ph:nth-child(3) { margin-top: 2.2em; }
+
+      .m-acct .mk-nav { padding: 1em 1.9em; }
+      .m-acct .mk-logo { font-size: 1.6em; }
+      .m-acct-wordmark small { display: none; }
+      .m-acct .mk-nav .mk-btn { font-size: 0.85em; }
+      .m-acct-copy { justify-content: flex-start; padding: 1.5em 1.6em 1.6em; }
+      .m-acct .mk-eyebrow { margin-bottom: 1.1em; font-size: 0.72em; }
+      .m-acct .mk-h { font-size: 3.2em; }
+      .m-acct .mk-text { margin-bottom: 1.3em; font-size: 0.95em; }
+      .m-acct-actions .mk-btn { font-size: 0.85em; }
+      .m-acct-link { font-size: 0.8em; }
+      .m-acct-photo { margin: 0 1.6em; background-position: center 24%; }
+      .m-acct-photo::after, .m-acct-caption { display: none; }
+      .m-acct-services { display: none; }
+
+      .m-shop-banner { flex-direction: column; align-items: flex-start; gap: 1.1em; padding: 1.3em 1.6em 1.6em; }
+      .m-shop .mk-h { font-size: 2.6em; }
+      .m-shop-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 15em; gap: 0.9em; padding: 0 1.6em; }
+      .m-shop-item p { padding: 0.6em 0 0; font-size: 0.9em; }
+
+      .m-yoga::before { width: 13em; left: 40%; top: 4%; }
+      .m-yoga-body { flex-direction: column; align-items: stretch; justify-content: flex-end; gap: 1.4em; padding: 1.6em; }
+      .m-yoga .mk-h { font-size: 3.4em; }
+      .m-yoga-card { min-width: 0; font-size: 1em; }
+
+      /* the dated "before" sites */
+      .oc-page { width: 90%; }
+      .oc-banner { padding: 0.4em 0.3em; font-size: 1.85em; }
+      .oc-nav { flex-wrap: wrap; font-size: 0.8em; }
+      .oc-nav span { padding: 0.45em 0.8em; }
+      .oc-body { grid-template-columns: 1fr; }
+      .oc-side { order: 1; }
+      .oc-main { padding: 1.1em 1.3em; font-size: 1em; }
+      .oc-img { width: 46%; }
+      .oc-count { font-size: 0.9em; }
+
+      .ot-head { padding: 0.9em 1.2em; }
+      .ot-logo { font-size: 1.6em; }
+      .ot-phone { font-size: 0.8em; }
+      .ot-nav { flex-wrap: wrap; margin: 0 0.6em; }
+      .ot-nav span { flex: 1 0 auto; padding: 0.6em 0.5em; font-size: 0.66em; }
+      .ot-body { grid-template-columns: 1fr 34%; gap: 1em; margin: 0 0.6em; padding: 1.1em; }
+      .ot-main { font-size: 0.86em; }
+      .ot-h { font-size: 1.45em; }
+      .ot-burst { padding: 1.4em 0.3em; font-size: 0.95em; }
+      .ot-foot { margin: 0 0.6em; }
+
+      .os-page { width: 90%; padding: 1em 1.1em; }
+      .os-logo { font-size: 2.5em; }
+      .os-tag { font-size: 0.78em; }
+      .os-marquee { margin: 0 -1.375em 0.9em; white-space: normal; font-size: 0.8em; }
+      .os-nav { font-size: 0.9em; }
+      .os-text { font-size: 0.92em; }
+      .os-prices { width: 100%; font-size: 0.85em; }
+      .os-gallery { gap: 0.6em; }
+      .os-gallery span { width: 12em; height: 8.5em; font-size: 0.7em; }
+      .os-call { font-size: 1em; }
     }
     @media (max-width: 600px) {
       .nav-word { display: none; }
@@ -821,7 +936,9 @@
 
   <!-- SHOWCASE: each card below is a placeholder mock-up of a type of site we build.
        To swap in a real screenshot, replace a card's <div class="mock ..."> … </div> with
-       <img src="your-screenshot.jpg" alt=""> (a 16:10 image, e.g. 1600×1000, fits best). -->
+       <img src="your-screenshot.jpg" alt=""> (a 16:10 image, e.g. 1600×1000, fits best).
+       On phones the cards are 4:5, so add a phone screenshot for them like this:
+       <picture><source media="(max-width: 700px)" srcset="your-phone-screenshot.jpg"><img src="your-screenshot.jpg" alt=""></picture> -->
   <div class="showcase fade-up" id="showcase" role="region" aria-roledescription="carousel" aria-label="Examples of websites we design" style="transition-delay:0.15s">
     <div class="showcase-stage">
 
