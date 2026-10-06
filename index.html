@@ -172,6 +172,31 @@
     .hero-sub strong { color: #fff; font-weight: 500; white-space: nowrap; }
     .hero-note { margin-top: 1.1rem; font-size: 0.8rem; letter-spacing: 0.03em; color: rgba(255,255,255,0.5); }
 
+    /* Hero background video: our own soft-focus flower loop (images/hero/bloom-wide|tall.mp4). The script
+       below picks the wide or tall file for the screen. It sits behind the headline and fades out above the showcase. */
+    .hero-video {
+      position: absolute; top: 0; left: 0; z-index: 0; width: 100%; height: min(100%, 62rem);
+      object-fit: cover; object-position: 50% 35%; pointer-events: none;
+      opacity: 0.5;
+      -webkit-mask-image: linear-gradient(180deg, #000 45%, transparent 92%);
+      mask-image: linear-gradient(180deg, #000 45%, transparent 92%);
+    }
+    /* Light hero: pale background and dark text to suit the pastel flower. Remove hero--light from the section to go back to the dark green hero. */
+    .hero--light { color: var(--ink); background: #f3f3f4; }
+    .hero--light .hero-video { opacity: 0.8; }
+    /* a soft pale veil behind the words keeps the grey subtitle readable over the petals */
+    .hero--light::before { content: ''; position: absolute; z-index: 1; inset: 0 0 auto; height: 40rem; pointer-events: none; background: radial-gradient(50% 45% at 50% 42%, rgba(243,243,244,0.7), transparent 75%); }
+    .hero--light .hero-title { color: var(--ink); }
+    .hero--light .hero-sub { color: var(--ink-soft); }
+    .hero--light .hero-sub strong { color: var(--ink); }
+    .hero--light .btn-light { background: var(--forest); color: #fff; box-shadow: 0 10px 30px rgba(1,32,11,0.25); }
+    .hero--light .btn-light:hover { background: var(--forest-mid); }
+    .hero--light .showcase-card { box-shadow: 0 30px 80px rgba(1,32,11,0.22), 0 0 0 1px rgba(1,32,11,0.06); }
+    .hero--light .showcase-card::after { background: #f3f3f4; }
+    .hero--light .showcase-btn { color: var(--ink-soft); }
+    .hero--light .showcase-btn:hover { color: var(--ink); }
+    body:has(.hero--light) nav:not(.scrolled) { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+
     /* SHOWCASE — carousel of example sites in the hero */
     .showcase { position: relative; z-index: 1; margin-top: clamp(3.5rem, 8vh, 5.5rem); }
     .showcase-stage {
@@ -927,7 +952,8 @@
   </div>
 </nav>
 
-<section class="hero">
+<section class="hero hero--light">
+  <video class="hero-video" muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
   <div class="hero-copy fade-up">
     <h1 class="hero-title">Your business<br>deserves a <em>great</em> website.</h1>
     <p class="hero-sub">Modern websites for small businesses with <strong>no upfront cost</strong>.<br>Just a simple monthly subscription.</p>
@@ -1614,7 +1640,19 @@
 
   // Nav state
   const navEl = document.getElementById('nav');
-  const darkSections = document.querySelectorAll('.hero, .work, .contact, footer');
+  const darkSections = document.querySelectorAll('.hero:not(.hero--light), .work, .contact, footer');
+
+  // Hero background video: tall file on portrait screens, wide otherwise. Reduced motion keeps the still frame.
+  (function () {
+    const video = document.querySelector('.hero-video');
+    if (!video) return;
+    const shape = window.matchMedia('(max-aspect-ratio: 4/5)').matches ? 'tall' : 'wide';
+    video.poster = `images/hero/bloom-${shape}.jpg`;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    video.src = `images/hero/bloom-${shape}.mp4`;
+    video.play().catch(() => {});
+  })();
+
   function onScroll() {
     const y = window.scrollY;
     navEl.classList.toggle('scrolled', y > 20);
