@@ -655,7 +655,6 @@
       background: none; border: 0; cursor: pointer; text-align: left;
       font-family: 'DM Sans', sans-serif; font-size: 1.1rem; font-weight: 500; letter-spacing: -0.012em; line-height: 1.35; color: var(--forest);
     }
-    .faq-num { min-width: 2rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; color: var(--accent); }
     .faq-q-text { flex: 1; }
     .faq-icon { position: relative; flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; border: 1px solid #cfccc0; color: var(--forest); transition: transform 0.4s var(--ease), background 0.3s, border-color 0.3s, color 0.3s; }
     .faq-icon::before, .faq-icon::after { content: ''; position: absolute; top: 50%; left: 50%; background: currentColor; transform: translate(-50%, -50%); }
@@ -667,7 +666,7 @@
     .faq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.4s var(--ease); }
     .faq-a-inner { overflow: hidden; }
     .faq-item.open .faq-a { grid-template-rows: 1fr; }
-    .faq-a p { max-width: 44rem; padding: 0 3.5rem 1.8rem 3.2rem; font-size: 1rem; line-height: 1.78; font-weight: 300; color: var(--ink-soft); }
+    .faq-a p { max-width: 44rem; padding: 0 3.5rem 1.8rem 0; font-size: 1rem; line-height: 1.78; font-weight: 300; color: var(--ink-soft); }
 
     /* CONTACT */
     .contact {
@@ -802,8 +801,7 @@
       .ba-knob { width: 40px; height: 40px; }
       .ba-label { padding: 0.28rem 0.55rem; font-size: 0.55rem; letter-spacing: 0.1em; }
       .faq-q { gap: 0.9rem; padding: 1.35rem 0; font-size: 1rem; }
-      .faq-num { min-width: 1.6rem; }
-      .faq-a p { padding: 0 0 1.5rem 2.5rem; }
+      .faq-a p { padding: 0 0 1.5rem; }
       .form-row { grid-template-columns: 1fr; }
     }
 
@@ -1473,27 +1471,27 @@
     </div>
     <div class="faq-list fade-up">
       <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-num">01</span><span class="faq-q-text">How does $0 upfront actually work?</span><span class="faq-icon" aria-hidden="true"></span></button>
+        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-q-text">How does $0 upfront actually work?</span><span class="faq-icon" aria-hidden="true"></span></button>
         <div class="faq-a"><div class="faq-a-inner"><p>We cover the cost of designing and building your website. Instead of a large upfront payment, you pay a simple monthly subscription that covers your site, hosting, and ongoing support.</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-num">02</span><span class="faq-q-text">What does the monthly subscription include?</span><span class="faq-icon" aria-hidden="true"></span></button>
+        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-q-text">What does the monthly subscription include?</span><span class="faq-icon" aria-hidden="true"></span></button>
         <div class="faq-a"><div class="faq-a-inner"><p>Your subscription covers your custom website, hosting, SSL certificate, ongoing maintenance, and a set number of content updates per month. Everything you need to stay online and looking great.</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-num">03</span><span class="faq-q-text">How long does it take to build my website?</span><span class="faq-icon" aria-hidden="true"></span></button>
+        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-q-text">How long does it take to build my website?</span><span class="faq-icon" aria-hidden="true"></span></button>
         <div class="faq-a"><div class="faq-a-inner"><p>Most websites are designed, built, and launched within 2–3 weeks from our first call. Larger projects may take a little longer.</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-num">04</span><span class="faq-q-text">Can I cancel my subscription?</span><span class="faq-icon" aria-hidden="true"></span></button>
+        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-q-text">Can I cancel my subscription?</span><span class="faq-icon" aria-hidden="true"></span></button>
         <div class="faq-a"><div class="faq-a-inner"><p>Yes. You can cancel at any time. If you cancel, your website will be taken offline, but your domain name always stays yours.</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-num">05</span><span class="faq-q-text">Who owns my domain and website?</span><span class="faq-icon" aria-hidden="true"></span></button>
+        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-q-text">Who owns my domain and website?</span><span class="faq-icon" aria-hidden="true"></span></button>
         <div class="faq-a"><div class="faq-a-inner"><p>Your domain name is always yours. We never own it. The website we design, build and look after for you is owned by Midsomer Design.</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-num">06</span><span class="faq-q-text">What kinds of businesses do you work with?</span><span class="faq-icon" aria-hidden="true"></span></button>
+        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-q-text">What kinds of businesses do you work with?</span><span class="faq-icon" aria-hidden="true"></span></button>
         <div class="faq-a"><div class="faq-a-inner"><p>We work with all kinds of small businesses from cafes, tradespeople, retail shops, to service providers and consultants. If you need a professional online presence, we can help.</p></div></div>
       </div>
     </div>
