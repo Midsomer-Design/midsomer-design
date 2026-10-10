@@ -105,7 +105,7 @@
       transition: background 0.25s, transform 0.2s var(--ease), box-shadow 0.25s;
     }
     .nav-cta:hover { background: var(--forest-mid) !important; transform: translateY(-1px); box-shadow: 0 8px 22px rgba(1,50,18,0.28); }
-    /* phone menu: Our Team moves into a full-screen menu opened from next to Book a Call (shown under 600px) */
+    /* phone menu: Our Team moves into a small dropdown next to Book a Call (shown under 600px) */
     .nav-menu-btn, .nav-menu { display: none; }
     nav.on-dark { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
     nav.on-dark.scrolled { background: rgba(3,11,6,0.72); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom-color: rgba(255,255,255,0.08); box-shadow: none; }
@@ -280,32 +280,13 @@
       .nav-menu-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
       nav.on-dark .nav-menu-btn { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.08); }
       nav.on-dark .nav-menu-btn span { background: #fff; }
-      /* the menu opens as a panel over the whole screen, with the banner staying on top */
-      .nav-menu {
-        display: flex; flex-direction: column; position: fixed; inset: 0; z-index: 99;
-        padding: calc(5.5rem + env(safe-area-inset-top, 0px)) clamp(1.2rem, 5vw, 3.5rem) 2.5rem;
-        background: var(--cream);
-        opacity: 0; visibility: hidden; transform: translateY(-12px);
-        transition: opacity 0.3s var(--ease), transform 0.35s var(--ease), visibility 0s 0.35s;
+      .nav-menu.open {
+        display: flex; flex-direction: column; position: absolute; top: calc(100% - 0.4rem); right: clamp(1.2rem, 5vw, 3.5rem);
+        min-width: 11rem; padding: 0.4rem; border-radius: 14px; background: #fff;
+        box-shadow: 0 18px 40px rgba(1,32,11,0.16), 0 0 0 1px rgba(1,32,11,0.06);
       }
-      .nav-menu.open { opacity: 1; visibility: visible; transform: none; transition: opacity 0.3s var(--ease), transform 0.35s var(--ease); }
-      .nav-menu-label { margin-bottom: 0.6rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
-      .nav-menu a {
-        display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 0;
-        border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-        font-size: 2rem; font-weight: 700; letter-spacing: -0.03em; color: var(--forest); text-decoration: none;
-      }
-      .nav-menu a::after { content: '→'; font-size: 1.5rem; font-weight: 400; transition: transform 0.25s var(--ease); }
-      .nav-menu a:hover::after, .nav-menu a:focus-visible::after { transform: translateX(4px); }
-      .nav-menu a[aria-current="page"] { color: var(--accent); }
-      /* while the menu is open the banner sits on the cream panel, so it always uses its light look */
-      body.menu-open { overflow: hidden; }
-      body.menu-open nav, body.menu-open nav.scrolled, body.menu-open nav.on-dark.scrolled { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom-color: transparent; box-shadow: none; }
-      body.menu-open nav.on-dark .nav-word { color: var(--forest); }
-      body.menu-open nav.on-dark .nav-mark { box-shadow: 0 3px 10px rgba(1,50,18,0.28); }
-      body.menu-open nav.on-dark .nav-cta { background: var(--forest) !important; color: #fff !important; }
-      body.menu-open nav.on-dark .nav-menu-btn { border-color: var(--line); background: rgba(255,255,255,0.6); }
-      body.menu-open nav.on-dark .nav-menu-btn span { background: var(--forest); }
+      .nav-menu a { padding: 0.8rem 0.9rem; border-radius: 10px; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.11em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+      .nav-menu a:hover, .nav-menu a[aria-current="page"] { background: var(--mint-soft); color: var(--forest); }
     }
   </style>
 </head>
@@ -321,11 +302,10 @@
     <a href="index.html#contact" class="nav-cta">Book a Call</a>
     <button class="nav-menu-btn" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
+  <div class="nav-menu" id="nav-menu">
+    <a href="about.html" aria-current="page">Our Team</a>
+  </div>
 </nav>
-<div class="nav-menu" id="nav-menu">
-  <p class="nav-menu-label">Menu</p>
-  <a href="about.html" aria-current="page">Our Team</a>
-</div>
 
 <header class="page-header">
   <h1 class="page-title fade-up">Our Team</h1>
@@ -436,13 +416,12 @@
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
   // Nav: compact once scrolled, white while it sits over a dark section
-  // Phone menu: the button opens a full-screen panel holding Our Team
+  // Phone menu: the button opens a small dropdown holding Our Team
   const menuBtn = document.querySelector('.nav-menu-btn');
   const menu = document.getElementById('nav-menu');
-  const setMenu = open => { menu.classList.toggle('open', open); document.body.classList.toggle('menu-open', open); menuBtn.setAttribute('aria-expanded', open); };
+  const setMenu = open => { menu.classList.toggle('open', open); menuBtn.setAttribute('aria-expanded', open); };
   menuBtn.addEventListener('click', e => { e.stopPropagation(); setMenu(!menu.classList.contains('open')); });
   document.addEventListener('click', e => { if (!menu.contains(e.target)) setMenu(false); });
-  matchMedia('(max-width: 600px)').addEventListener('change', e => { if (!e.matches) setMenu(false); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) { setMenu(false); menuBtn.focus(); } });
   const navEl = document.getElementById('nav');
   const darkSections = document.querySelectorAll('.page-header, .contact, footer');
