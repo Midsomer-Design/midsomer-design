@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VHFXPCBB19"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-VHFXPCBB19');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Midsomer Design — Websites for Small Business</title>
@@ -11,7 +20,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Midsomer Design">
   <meta property="og:title" content="Midsomer Design — Websites for Small Business">
-  <meta property="og:description" content="Modern websites for small businesses with no upfront cost. Just a simple monthly subscription.">
+  <meta property="og:description" content="Modern websites for small businesses, with no upfront cost. Just a simple monthly subscription.">
   <meta property="og:url" content="https://www.midsomerdesign.com/">
   <meta property="og:image" content="https://www.midsomerdesign.com/og-image.jpg">
   <meta property="og:image:width" content="1200">
@@ -396,14 +405,12 @@
       background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg);
       padding: 0.75rem 0.75rem 2.4rem;
     }
-    .path-refresh { background: var(--night-2); border-color: var(--night-2); color: #fff; }
+    /* the Refresh card gets a soft green glow so it reads differently from the Launch card */
+    .path-refresh { border-color: var(--mint); box-shadow: 0 0 0 6px rgba(159,224,180,0.35), 0 18px 44px rgba(11,157,67,0.18); }
     .path-body { display: flex; flex-direction: column; flex: 1; padding: 2.1rem 1.9rem 0; }
     .path-kicker { margin-bottom: 0.9rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
     .path-title { margin-bottom: 0.85rem; font-size: clamp(1.65rem, 2.5vw, 2.15rem); font-weight: 700; letter-spacing: -0.032em; line-height: 1.08; color: var(--forest); }
     .path-text { max-width: 29rem; margin-bottom: 1.8rem; font-size: 1rem; line-height: 1.72; font-weight: 300; color: var(--ink-soft); }
-    .path-refresh .path-kicker { color: var(--mint); }
-    .path-refresh .path-title { color: #fff; }
-    .path-refresh .path-text { color: rgba(255,255,255,0.7); }
     .text-link {
       align-self: flex-start; display: inline-flex; align-items: center; gap: 0.5rem;
       padding-bottom: 3px; border-bottom: 1px solid currentColor;
@@ -414,42 +421,24 @@
     .text-link:hover { opacity: 0.7; }
     .text-link:hover::after { transform: translateX(3px); }
     .path .text-link { margin-top: auto; }
-    .path-refresh .text-link { color: #fff; }
 
-    /* little browser illustrations in the two cards (sized off their own width) */
+    /* pictures of example sites in the two cards, in little browser windows (sized off their own width) */
     .mini { position: relative; aspect-ratio: 16 / 10; overflow: hidden; container-type: inline-size; border-radius: 14px; background: var(--paper); }
-    .path-refresh .mini { background: rgba(255,255,255,0.05); }
     .mini-win { position: absolute; left: 8cqw; right: 8cqw; top: 8cqw; bottom: -2cqw; display: flex; flex-direction: column; overflow: hidden; border-radius: 2cqw; background: #fff; box-shadow: 0 3cqw 8cqw rgba(1,32,11,0.12); }
     .mini-chrome { flex-shrink: 0; height: 5.5cqw; display: flex; align-items: center; gap: 1cqw; padding: 0 2.4cqw; background: #f1efe8; border-bottom: 1px solid #e4e2d9; }
     .mini-chrome i { width: 1.3cqw; height: 1.3cqw; border-radius: 50%; background: #d6d3c8; }
-    .mini-site { position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 4cqw; padding: 3.5cqw 5cqw; background: #fff; }
-    .ms-nav { display: flex; align-items: center; gap: 2cqw; }
-    .ms-nav b { width: 10cqw; height: 1.8cqw; margin-right: auto; border-radius: 1cqw; background: var(--forest); }
-    .ms-nav span { width: 5cqw; height: 1.1cqw; border-radius: 1cqw; background: #dcd9cf; }
-    .ms-nav em { width: 9cqw; height: 3.2cqw; border-radius: 3cqw; background: var(--forest); }
-    .ms-hero { flex: 1; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4cqw; }
-    .ms-copy { display: flex; flex-direction: column; justify-content: center; gap: 1.5cqw; }
-    .ms-h { height: 3.4cqw; border-radius: 1cqw; background: var(--forest); }
-    .ms-h + .ms-h { width: 72%; margin-bottom: 1cqw; }
-    .ms-p { width: 88%; height: 1.1cqw; border-radius: 1cqw; background: #dcd9cf; }
-    .ms-btn { width: 14cqw; height: 3.8cqw; margin-top: 1.6cqw; border-radius: 3cqw; background: var(--accent-bright); }
-    .ms-img { border-radius: 1.6cqw; background: linear-gradient(155deg, #d7eddd 0%, var(--mint) 100%); }
+    .mini-img { display: block; flex: 1; min-height: 0; width: 100%; object-fit: cover; object-position: top center; }
     .mini-live { position: absolute; right: 5cqw; bottom: 5cqw; display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.45rem 0.85rem; border-radius: 999px; background: var(--forest); color: #fff; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; box-shadow: 0 8px 20px rgba(1,32,11,0.25); }
     .mini-live i { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 3px rgba(159,224,180,0.25); }
-    .mini-old { position: absolute; left: 0; right: 0; bottom: 0; top: 5.5cqw; display: flex; flex-direction: column; gap: 1.6cqw; padding: 2.4cqw 7cqw 0; background: #d9d6ce; }
-    .mo-banner { height: 6.5cqw; background: linear-gradient(#3a6fc4, #173d80); }
-    .mo-links { display: flex; justify-content: center; gap: 2cqw; padding: 1cqw 0; background: #ecebe6; }
-    .mo-links i { width: 6cqw; height: 1cqw; background: #2340c9; }
-    .mo-body { flex: 1; display: grid; grid-template-columns: 26% 1fr; gap: 2cqw; padding: 2cqw; background: #fff; }
-    .mo-side { background: #f1e7c6; }
-    .mo-text { display: flex; flex-direction: column; gap: 1.3cqw; }
-    .mo-text i { height: 1cqw; background: #bcb9b0; }
-    .mo-text i:nth-child(2) { width: 90%; }
-    .mo-text i:nth-child(4) { width: 70%; }
-    .mo-text b { width: 42%; height: 11cqw; margin-top: 1cqw; border: 1px solid #aaa; background: repeating-linear-gradient(45deg, #e2e2e2 0 1cqw, #d0d0d0 1cqw 2cqw); }
-    .mini-new { position: absolute; left: 0; right: 0; bottom: 0; top: 5.5cqw; clip-path: inset(0 0 0 50%); }
-    .mini-split { position: absolute; top: 5.5cqw; bottom: 0; left: 50%; width: 2px; margin-left: -1px; background: var(--forest); }
-    .mini-split i { position: absolute; top: 50%; left: 50%; width: 5.5cqw; height: 5.5cqw; transform: translate(-50%, -50%); border-radius: 50%; background: var(--forest); box-shadow: 0 0 0 1cqw #fff; }
+    /* the Existing website card shows the old and new café sites side by side */
+    .mini-shot { position: absolute; width: 58cqw; overflow: hidden; border-radius: 1.6cqw; background: #fff; box-shadow: 0 2.5cqw 7cqw rgba(1,32,11,0.16); }
+    .mini-shot:first-child { left: 6cqw; top: 6cqw; }
+    .mini-shot:last-child { right: 6cqw; top: 19cqw; }
+    .mini-shot .mini-chrome { height: 3.6cqw; gap: 0.7cqw; padding: 0 1.6cqw; }
+    .mini-shot .mini-chrome i { width: 0.9cqw; height: 0.9cqw; }
+    .mini-shot img { display: block; width: 100%; height: auto; }
+    .mini-shot figcaption { position: absolute; left: 2cqw; bottom: 2cqw; padding: 0.25em 0.7em; border-radius: 999px; background: rgba(20,23,15,0.72); color: #fff; font-size: clamp(0.55rem, 2.4cqw, 0.68rem); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+    .mini-shot figcaption.is-after { left: auto; right: 2cqw; background: var(--forest); }
 
     /* HOW WE COMPARE */
     .compare {
@@ -631,7 +620,7 @@
       transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.3s;
     }
     .pricing-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(1,50,18,0.2); }
-    .pricing-plan { margin-bottom: 1.4rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
+    .pricing-plan { margin-bottom: 1.4rem; font-size: 0.86rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
     .pricing-price { font-size: 3.5rem; font-weight: 700; line-height: 1; letter-spacing: -0.045em; color: var(--forest); }
     .pricing-period { margin: 0.55rem 0 1.9rem; font-size: 0.85rem; font-weight: 300; color: var(--ink-soft); }
     .pricing-desc { min-height: calc(1.55em * 2); margin: -0.8rem 0 1.7rem; font-size: 0.92rem; font-weight: 300; line-height: 1.55; color: var(--ink-soft); }
@@ -675,7 +664,6 @@
       background: none; border: 0; cursor: pointer; text-align: left;
       font-family: 'DM Sans', sans-serif; font-size: 1.1rem; font-weight: 500; letter-spacing: -0.012em; line-height: 1.35; color: var(--forest);
     }
-    .faq-num { min-width: 2rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; color: var(--accent); }
     .faq-q-text { flex: 1; }
     .faq-icon { position: relative; flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; border: 1px solid #cfccc0; color: var(--forest); transition: transform 0.4s var(--ease), background 0.3s, border-color 0.3s, color 0.3s; }
     .faq-icon::before, .faq-icon::after { content: ''; position: absolute; top: 50%; left: 50%; background: currentColor; transform: translate(-50%, -50%); }
@@ -687,7 +675,7 @@
     .faq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.4s var(--ease); }
     .faq-a-inner { overflow: hidden; }
     .faq-item.open .faq-a { grid-template-rows: 1fr; }
-    .faq-a p { max-width: 44rem; padding: 0 3.5rem 1.8rem 3.2rem; font-size: 1rem; line-height: 1.78; font-weight: 300; color: var(--ink-soft); }
+    .faq-a p { max-width: 44rem; padding: 0 3.5rem 1.8rem 0; font-size: 1rem; line-height: 1.78; font-weight: 300; color: var(--ink-soft); }
 
     /* CONTACT */
     .contact {
@@ -796,7 +784,16 @@
       .footer-meta { justify-content: center; }
     }
     @media (max-width: 760px) {
-      .paths-grid { grid-template-columns: 1fr; }
+      /* Phones: the two boxes sit side by side in a sideways swipe, with the second one peeking in from the right */
+      .paths-grid {
+        --gutter: clamp(1.2rem, 5vw, 3.5rem);
+        display: grid; grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: min(82%, 22rem); gap: 0.9rem;
+        margin: -1rem calc(-1 * var(--gutter)) -2rem; padding: 1rem var(--gutter) 2rem; /* room for the Refresh card's glow inside the swipe row */
+        overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; /* only sideways scrolling here, so up-and-down swipes still scroll the page */ scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter);
+        scrollbar-width: none;
+      }
+      .paths-grid::-webkit-scrollbar { display: none; }
+      .paths-grid > .path { scroll-snap-align: start; }
     }
     @media (max-width: 700px) {
       .showcase-stage { --card-w: min(78vw, 420px); --spread: 0.9; height: calc(var(--card-w) * 1.25); }
@@ -813,8 +810,7 @@
       .ba-knob { width: 40px; height: 40px; }
       .ba-label { padding: 0.28rem 0.55rem; font-size: 0.55rem; letter-spacing: 0.1em; }
       .faq-q { gap: 0.9rem; padding: 1.35rem 0; font-size: 1rem; }
-      .faq-num { min-width: 1.6rem; }
-      .faq-a p { padding: 0 0 1.5rem 2.5rem; }
+      .faq-a p { padding: 0 0 1.5rem; }
       .form-row { grid-template-columns: 1fr; }
     }
 
@@ -933,8 +929,12 @@
       .os-call { font-size: 1em; }
     }
     @media (max-width: 600px) {
-      .nav-word { display: none; }
-      .nav-links { gap: 1.1rem; }
+      /* phones: the name sits next to the logo on two lines so everything fits */
+      .nav-logo { gap: 0.55rem; }
+      .nav-word { width: min-content; font-size: 1.02rem; line-height: 0.95; }
+      .nav-links { gap: 0.8rem; }
+      .nav-links a { font-size: 0.78rem; letter-spacing: 0.06em; white-space: nowrap; }
+      .nav-cta { padding: 0.6rem 1rem !important; }
       .hero-title { font-size: clamp(2.3rem, 9vw, 3rem); }
     }
   </style>
@@ -956,7 +956,7 @@
   <video class="hero-video" muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
   <div class="hero-copy fade-up">
     <h1 class="hero-title">Your business<br>deserves a <em>great</em> website.</h1>
-    <p class="hero-sub">Modern websites for small businesses with <strong>no upfront cost</strong>.<br>Just a simple monthly subscription.</p>
+    <p class="hero-sub">Modern websites for small businesses, with <strong>no upfront cost</strong>.<br>Just a simple monthly subscription.</p>
     <a href="#contact" class="btn-primary btn-light">Book a free call</a>
   </div>
 
@@ -1144,56 +1144,44 @@
 <section class="paths" id="paths">
   <div class="paths-inner">
     <div class="head-center fade-up">
-      <h2 class="section-title">Starting fresh, or due for a <em>refresh?</em></h2>
+      <h2 class="section-title">Due for a <em>refresh</em>, or starting fresh?</h2>
     </div>
 
     <div class="paths-grid">
+      <article class="path path-refresh fade-up">
+        <div class="mini" aria-hidden="true">
+          <figure class="mini-shot">
+            <div class="mini-chrome"><i></i><i></i><i></i></div>
+            <img src="images/paths/cafe-before.jpg" alt="" width="960" height="600" loading="lazy" decoding="async">
+            <figcaption>Before</figcaption>
+          </figure>
+          <figure class="mini-shot">
+            <div class="mini-chrome"><i></i><i></i><i></i></div>
+            <img src="images/paths/cafe-after.jpg" alt="" width="960" height="600" loading="lazy" decoding="async">
+            <figcaption class="is-after">After</figcaption>
+          </figure>
+        </div>
+        <div class="path-body">
+          <p class="path-kicker">$0 upfront</p>
+          <h3 class="path-title">Refresh your website</h3>
+          <p class="path-text">Dated design, slow pages, or a site that's hard to use on a phone? We'll redesign and rebuild it with no upfront cost, then look after it for one monthly fee.</p>
+          <a href="#work" class="text-link">See a refresh</a>
+        </div>
+      </article>
+
       <article class="path fade-up">
         <div class="mini" aria-hidden="true">
           <div class="mini-win">
             <div class="mini-chrome"><i></i><i></i><i></i></div>
-            <div class="mini-site">
-              <div class="ms-nav"><b></b><span></span><span></span><span></span><em></em></div>
-              <div class="ms-hero">
-                <div class="ms-copy"><span class="ms-h"></span><span class="ms-h"></span><span class="ms-p"></span><span class="ms-p"></span><span class="ms-btn"></span></div>
-                <div class="ms-img"></div>
-              </div>
-            </div>
+            <img class="mini-img" src="images/paths/tidewell.jpg" alt="" width="960" height="600" loading="lazy" decoding="async">
           </div>
           <span class="mini-live"><i></i>Live</span>
         </div>
         <div class="path-body">
-          <p class="path-kicker">Launch looking established.</p>
-          <h3 class="path-title">New business</h3>
+          <p class="path-kicker">Look established from day one</p>
+          <h3 class="path-title">Launch your first website</h3>
           <p class="path-text">Opening your doors? We'll design and build a custom website that looks the part from day one. Most sites go live within 2–3 weeks.</p>
           <a href="#how" class="text-link">How it works</a>
-        </div>
-      </article>
-
-      <article class="path path-refresh fade-up">
-        <div class="mini" aria-hidden="true">
-          <div class="mini-win">
-            <div class="mini-chrome"><i></i><i></i><i></i></div>
-            <div class="mini-old">
-              <span class="mo-banner"></span>
-              <span class="mo-links"><i></i><i></i><i></i><i></i></span>
-              <span class="mo-body"><span class="mo-side"></span><span class="mo-text"><i></i><i></i><i></i><i></i><b></b></span></span>
-            </div>
-            <div class="mini-site mini-new">
-              <div class="ms-nav"><b></b><span></span><span></span><span></span><em></em></div>
-              <div class="ms-hero">
-                <div class="ms-copy"><span class="ms-h"></span><span class="ms-h"></span><span class="ms-p"></span><span class="ms-p"></span><span class="ms-btn"></span></div>
-                <div class="ms-img"></div>
-              </div>
-            </div>
-            <span class="mini-split"><i></i></span>
-          </div>
-        </div>
-        <div class="path-body">
-          <p class="path-kicker">Refresh it for $0 upfront.</p>
-          <h3 class="path-title">Existing website</h3>
-          <p class="path-text">Dated design, slow pages, or a site that's hard to use on a phone? We'll redesign and rebuild it with no upfront cost, then look after it for one monthly fee.</p>
-          <a href="#work" class="text-link">See a refresh</a>
         </div>
       </article>
     </div>
@@ -1208,11 +1196,11 @@
           <tr><th scope="col"><span class="sr-only">What you get</span></th><th scope="col">The usual way</th><th scope="col" class="ct-us">Midsomer</th></tr>
         </thead>
         <tbody>
-          <tr><th scope="row">Upfront cost</th><td>A big one off bill</td><td class="ct-us">$0 upfront</td></tr>
+          <tr><th scope="row">Upfront cost</th><td>A big bill</td><td class="ct-us">$0 upfront</td></tr>
           <tr><th scope="row">Design</th><td>Often a template</td><td class="ct-us">Custom designed for you</td></tr>
-          <tr><th scope="row">Hosting &amp; SSL</th><td>Often an extra cost</td><td class="ct-us">Included</td></tr>
+          <tr><th scope="row">Hosting &amp; SSL</th><td>An extra cost</td><td class="ct-us">Included</td></tr>
           <tr><th scope="row">Updates &amp; changes</th><td>Often billed per change</td><td class="ct-us">Monthly updates included</td></tr>
-          <tr><th scope="row">Ongoing care</th><td>Often left to you</td><td class="ct-us">We look after it</td></tr>
+          <tr><th scope="row">Ongoing care</th><td>Forgotten about</td><td class="ct-us">We look after it</td></tr>
         </tbody>
       </table>
     </div>
@@ -1247,7 +1235,7 @@
         <div class="step-text">
           <p class="step-label">Step 3</p>
           <h3 class="step-title">Go live, for $0 upfront</h3>
-          <p class="step-desc">Once you're happy, we launch your site. No large bill to pay. You start on a simple monthly subscription that covers everything.</p>
+          <p class="step-desc">Once you're happy, we launch your site. No large bill to pay. A simple monthly subscription covers everything.</p>
         </div>
         <div class="step-visual">Image placeholder</div>
       </div>
@@ -1486,33 +1474,33 @@
 <section class="faq" id="faq">
   <div class="faq-inner">
     <div class="faq-intro fade-up">
-      <h2 class="section-title">Got questions?</h2>
+      <h2 class="section-title">Have some questions?</h2>
       <p class="section-sub">Still not sure about something? Book a free 20-minute call and ask us directly.</p>
       <a href="#contact" class="text-link">Book a call</a>
     </div>
     <div class="faq-list fade-up">
       <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-num">01</span><span class="faq-q-text">How does $0 upfront actually work?</span><span class="faq-icon" aria-hidden="true"></span></button>
+        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-q-text">How does $0 upfront actually work?</span><span class="faq-icon" aria-hidden="true"></span></button>
         <div class="faq-a"><div class="faq-a-inner"><p>We cover the cost of designing and building your website. Instead of a large upfront payment, you pay a simple monthly subscription that covers your site, hosting, and ongoing support.</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-num">02</span><span class="faq-q-text">What does the monthly subscription include?</span><span class="faq-icon" aria-hidden="true"></span></button>
+        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-q-text">What does the monthly subscription include?</span><span class="faq-icon" aria-hidden="true"></span></button>
         <div class="faq-a"><div class="faq-a-inner"><p>Your subscription covers your custom website, hosting, SSL certificate, ongoing maintenance, and a set number of content updates per month. Everything you need to stay online and looking great.</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-num">03</span><span class="faq-q-text">How long does it take to build my website?</span><span class="faq-icon" aria-hidden="true"></span></button>
+        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-q-text">How long does it take to build my website?</span><span class="faq-icon" aria-hidden="true"></span></button>
         <div class="faq-a"><div class="faq-a-inner"><p>Most websites are designed, built, and launched within 2–3 weeks from our first call. Larger projects may take a little longer.</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-num">04</span><span class="faq-q-text">Can I cancel my subscription?</span><span class="faq-icon" aria-hidden="true"></span></button>
+        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-q-text">Can I cancel my subscription?</span><span class="faq-icon" aria-hidden="true"></span></button>
         <div class="faq-a"><div class="faq-a-inner"><p>Yes. You can cancel at any time. If you cancel, your website will be taken offline, but your domain name always stays yours.</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-num">05</span><span class="faq-q-text">Who owns my domain and website?</span><span class="faq-icon" aria-hidden="true"></span></button>
+        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-q-text">Who owns my domain and website?</span><span class="faq-icon" aria-hidden="true"></span></button>
         <div class="faq-a"><div class="faq-a-inner"><p>Your domain name is always yours. We never own it. The website we design, build and look after for you is owned by Midsomer Design.</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-num">06</span><span class="faq-q-text">What kinds of businesses do you work with?</span><span class="faq-icon" aria-hidden="true"></span></button>
+        <button class="faq-q" type="button" aria-expanded="false"><span class="faq-q-text">What kinds of businesses do you work with?</span><span class="faq-icon" aria-hidden="true"></span></button>
         <div class="faq-a"><div class="faq-a-inner"><p>We work with all kinds of small businesses from cafes, tradespeople, retail shops, to service providers and consultants. If you need a professional online presence, we can help.</p></div></div>
       </div>
     </div>
