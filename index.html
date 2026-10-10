@@ -411,39 +411,23 @@
     .text-link:hover::after { transform: translateX(3px); }
     .path .text-link { margin-top: auto; }
 
-    /* little browser illustrations in the two cards (sized off their own width) */
+    /* pictures of example sites in the two cards, in little browser windows (sized off their own width) */
     .mini { position: relative; aspect-ratio: 16 / 10; overflow: hidden; container-type: inline-size; border-radius: 14px; background: var(--paper); }
     .mini-win { position: absolute; left: 8cqw; right: 8cqw; top: 8cqw; bottom: -2cqw; display: flex; flex-direction: column; overflow: hidden; border-radius: 2cqw; background: #fff; box-shadow: 0 3cqw 8cqw rgba(1,32,11,0.12); }
     .mini-chrome { flex-shrink: 0; height: 5.5cqw; display: flex; align-items: center; gap: 1cqw; padding: 0 2.4cqw; background: #f1efe8; border-bottom: 1px solid #e4e2d9; }
     .mini-chrome i { width: 1.3cqw; height: 1.3cqw; border-radius: 50%; background: #d6d3c8; }
-    .mini-site { position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 4cqw; padding: 3.5cqw 5cqw; background: #fff; }
-    .ms-nav { display: flex; align-items: center; gap: 2cqw; }
-    .ms-nav b { width: 10cqw; height: 1.8cqw; margin-right: auto; border-radius: 1cqw; background: var(--forest); }
-    .ms-nav span { width: 5cqw; height: 1.1cqw; border-radius: 1cqw; background: #dcd9cf; }
-    .ms-nav em { width: 9cqw; height: 3.2cqw; border-radius: 3cqw; background: var(--forest); }
-    .ms-hero { flex: 1; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4cqw; }
-    .ms-copy { display: flex; flex-direction: column; justify-content: center; gap: 1.5cqw; }
-    .ms-h { height: 3.4cqw; border-radius: 1cqw; background: var(--forest); }
-    .ms-h + .ms-h { width: 72%; margin-bottom: 1cqw; }
-    .ms-p { width: 88%; height: 1.1cqw; border-radius: 1cqw; background: #dcd9cf; }
-    .ms-btn { width: 14cqw; height: 3.8cqw; margin-top: 1.6cqw; border-radius: 3cqw; background: var(--accent-bright); }
-    .ms-img { border-radius: 1.6cqw; background: linear-gradient(155deg, #d7eddd 0%, var(--mint) 100%); }
+    .mini-img { display: block; flex: 1; min-height: 0; width: 100%; object-fit: cover; object-position: top center; }
     .mini-live { position: absolute; right: 5cqw; bottom: 5cqw; display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.45rem 0.85rem; border-radius: 999px; background: var(--forest); color: #fff; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; box-shadow: 0 8px 20px rgba(1,32,11,0.25); }
     .mini-live i { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 3px rgba(159,224,180,0.25); }
-    .mini-old { position: absolute; left: 0; right: 0; bottom: 0; top: 5.5cqw; display: flex; flex-direction: column; gap: 1.6cqw; padding: 2.4cqw 7cqw 0; background: #d9d6ce; }
-    .mo-banner { height: 6.5cqw; background: linear-gradient(#3a6fc4, #173d80); }
-    .mo-links { display: flex; justify-content: center; gap: 2cqw; padding: 1cqw 0; background: #ecebe6; }
-    .mo-links i { width: 6cqw; height: 1cqw; background: #2340c9; }
-    .mo-body { flex: 1; display: grid; grid-template-columns: 26% 1fr; gap: 2cqw; padding: 2cqw; background: #fff; }
-    .mo-side { background: #f1e7c6; }
-    .mo-text { display: flex; flex-direction: column; gap: 1.3cqw; }
-    .mo-text i { height: 1cqw; background: #bcb9b0; }
-    .mo-text i:nth-child(2) { width: 90%; }
-    .mo-text i:nth-child(4) { width: 70%; }
-    .mo-text b { width: 42%; height: 11cqw; margin-top: 1cqw; border: 1px solid #aaa; background: repeating-linear-gradient(45deg, #e2e2e2 0 1cqw, #d0d0d0 1cqw 2cqw); }
-    .mini-new { position: absolute; left: 0; right: 0; bottom: 0; top: 5.5cqw; clip-path: inset(0 0 0 50%); }
-    .mini-split { position: absolute; top: 5.5cqw; bottom: 0; left: 50%; width: 2px; margin-left: -1px; background: var(--forest); }
-    .mini-split i { position: absolute; top: 50%; left: 50%; width: 5.5cqw; height: 5.5cqw; transform: translate(-50%, -50%); border-radius: 50%; background: var(--forest); box-shadow: 0 0 0 1cqw #fff; }
+    /* the Existing website card shows the old and new café sites side by side */
+    .mini-shot { position: absolute; width: 58cqw; overflow: hidden; border-radius: 1.6cqw; background: #fff; box-shadow: 0 2.5cqw 7cqw rgba(1,32,11,0.16); }
+    .mini-shot:first-child { left: 6cqw; top: 6cqw; }
+    .mini-shot:last-child { right: 6cqw; top: 19cqw; }
+    .mini-shot .mini-chrome { height: 3.6cqw; gap: 0.7cqw; padding: 0 1.6cqw; }
+    .mini-shot .mini-chrome i { width: 0.9cqw; height: 0.9cqw; }
+    .mini-shot img { display: block; width: 100%; height: auto; }
+    .mini-shot figcaption { position: absolute; left: 2cqw; bottom: 2cqw; padding: 0.25em 0.7em; border-radius: 999px; background: rgba(20,23,15,0.72); color: #fff; font-size: clamp(0.55rem, 2.4cqw, 0.68rem); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+    .mini-shot figcaption.is-after { left: auto; right: 2cqw; background: var(--forest); }
 
     /* HOW WE COMPARE */
     .compare {
@@ -1153,22 +1137,16 @@
     <div class="paths-grid">
       <article class="path fade-up">
         <div class="mini" aria-hidden="true">
-          <div class="mini-win">
+          <figure class="mini-shot">
             <div class="mini-chrome"><i></i><i></i><i></i></div>
-            <div class="mini-old">
-              <span class="mo-banner"></span>
-              <span class="mo-links"><i></i><i></i><i></i><i></i></span>
-              <span class="mo-body"><span class="mo-side"></span><span class="mo-text"><i></i><i></i><i></i><i></i><b></b></span></span>
-            </div>
-            <div class="mini-site mini-new">
-              <div class="ms-nav"><b></b><span></span><span></span><span></span><em></em></div>
-              <div class="ms-hero">
-                <div class="ms-copy"><span class="ms-h"></span><span class="ms-h"></span><span class="ms-p"></span><span class="ms-p"></span><span class="ms-btn"></span></div>
-                <div class="ms-img"></div>
-              </div>
-            </div>
-            <span class="mini-split"><i></i></span>
-          </div>
+            <img src="images/paths/cafe-before.jpg" alt="" width="960" height="600" loading="lazy" decoding="async">
+            <figcaption>Before</figcaption>
+          </figure>
+          <figure class="mini-shot">
+            <div class="mini-chrome"><i></i><i></i><i></i></div>
+            <img src="images/paths/cafe-after.jpg" alt="" width="960" height="600" loading="lazy" decoding="async">
+            <figcaption class="is-after">After</figcaption>
+          </figure>
         </div>
         <div class="path-body">
           <p class="path-kicker">Refresh it for $0 upfront.</p>
@@ -1182,13 +1160,7 @@
         <div class="mini" aria-hidden="true">
           <div class="mini-win">
             <div class="mini-chrome"><i></i><i></i><i></i></div>
-            <div class="mini-site">
-              <div class="ms-nav"><b></b><span></span><span></span><span></span><em></em></div>
-              <div class="ms-hero">
-                <div class="ms-copy"><span class="ms-h"></span><span class="ms-h"></span><span class="ms-p"></span><span class="ms-p"></span><span class="ms-btn"></span></div>
-                <div class="ms-img"></div>
-              </div>
-            </div>
+            <img class="mini-img" src="images/paths/tidewell.jpg" alt="" width="960" height="600" loading="lazy" decoding="async">
           </div>
           <span class="mini-live"><i></i>Live</span>
         </div>
