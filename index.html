@@ -318,7 +318,7 @@
     .m-salon-grid { flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 1.2em; padding: 0 2.4em; }
     .m-salon-grid .mk-ph { border-radius: 20em 20em 0 0; }
     .m-salon-grid .mk-ph:nth-child(1) { margin-top: 3em; background: linear-gradient(175deg, #ebc6ba, #c28b82); }
-    .m-salon-grid .mk-ph:nth-child(2) { background: linear-gradient(175deg, #d9a3a6, #8c5165); }
+    .m-salon-grid .mk-ph:nth-child(2) { background: #b77f7f url(images/showcase/juniper-salon.jpg) 62% 40% / cover no-repeat; }
     .m-salon-grid .mk-ph:nth-child(3) { margin-top: 3em; background: linear-gradient(175deg, #efd7c6, #c49f84); }
 
     /* Accounting example — an editorial identity, with a real advisory setting. */
@@ -405,8 +405,6 @@
       background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg);
       padding: 0.75rem 0.75rem 2.4rem;
     }
-    /* the Refresh card gets a soft green glow so it reads differently from the Launch card */
-    .path-refresh { border-color: var(--mint); box-shadow: 0 0 0 6px rgba(159,224,180,0.35), 0 18px 44px rgba(11,157,67,0.18); }
     .path-body { display: flex; flex-direction: column; flex: 1; padding: 2.1rem 1.9rem 0; }
     .path-kicker { margin-bottom: 0.9rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
     .path-title { margin-bottom: 0.85rem; font-size: clamp(1.65rem, 2.5vw, 2.15rem); font-weight: 700; letter-spacing: -0.032em; line-height: 1.08; color: var(--forest); }
@@ -609,9 +607,6 @@
     /* PRICING */
     .pricing { background: var(--cream); }
     .pricing-inner { max-width: 1160px; margin: 0 auto; }
-    .tick-list { list-style: none; margin-bottom: 2rem; border-top: 1px solid var(--line); }
-    .tick-list li { display: flex; align-items: baseline; gap: 0.8rem; padding: 0.95rem 0; border-bottom: 1px solid var(--line); font-size: 0.95rem; line-height: 1.5; color: var(--ink); }
-    .tick-list li::before { content: ''; flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--accent-bright); transform: translateY(-2px); }
     .pricing-grid { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; align-items: stretch; }
     .pricing-card {
       position: relative; display: flex; flex-direction: column;
@@ -655,8 +650,8 @@
 
     /* FAQ */
     .faq { background: var(--paper); }
-    .faq-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 0.9fr 1.55fr; gap: clamp(2.5rem, 5vw, 5rem); align-items: start; }
-    .faq-intro .section-sub { margin-bottom: 1.8rem; }
+    .faq-inner { max-width: 860px; margin: 0 auto; display: grid; gap: clamp(1.8rem, 3vw, 2.6rem); }
+    .faq-intro { text-align: center; }
     .faq-list { border-top: 1px solid #dcd9ce; }
     .faq-item { border-bottom: 1px solid #dcd9ce; }
     .faq-q {
@@ -685,10 +680,6 @@
         linear-gradient(180deg, var(--night-2) 0%, var(--night) 100%);
     }
     .contact-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 0.95fr 1.05fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: center; }
-    .contact .section-sub { margin-bottom: 2.2rem; }
-    .contact .tick-list { margin-bottom: 0; border-top-color: rgba(255,255,255,0.12); }
-    .contact .tick-list li { color: rgba(255,255,255,0.86); border-bottom-color: rgba(255,255,255,0.12); }
-    .contact .tick-list li::before { background: var(--mint); }
     .contact-form { padding: clamp(1.6rem, 4vw, 2.6rem); border-radius: var(--r-lg); background: var(--cream); color: var(--ink); box-shadow: 0 40px 100px rgba(0,0,0,0.45); }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
     .form-group { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.1rem; }
@@ -751,10 +742,10 @@
     }
     @media (max-width: 980px) {
       .hero { padding-top: 7.5rem; }
-      .compare, .faq-inner, .contact-inner { grid-template-columns: 1fr; }
-      /* Once stacked, centre the comparison, FAQ and contact intros (the contact bullet list stays left-aligned) */
-      .compare-title, .compare-sub, .faq-intro, .contact-intro .section-title, .contact-intro .section-sub { text-align: center; }
-      .compare-sub, .faq-intro .section-sub, .contact-intro .section-sub { margin-inline: auto; }
+      .compare, .contact-inner { grid-template-columns: 1fr; }
+      /* Once stacked, centre the comparison and contact intros */
+      .compare-title, .compare-sub, .contact-intro .section-title, .contact-intro .section-sub { text-align: center; }
+      .compare-sub, .contact-intro .section-sub { margin-inline: auto; }
       /* Pricing becomes a stack: drag the top card left and the next plan slides in over it */
       .pricing-grid {
         --gutter: clamp(1.2rem, 5vw, 3.5rem);
@@ -788,7 +779,7 @@
       .paths-grid {
         --gutter: clamp(1.2rem, 5vw, 3.5rem);
         display: grid; grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: min(82%, 22rem); gap: 0.9rem;
-        margin: -1rem calc(-1 * var(--gutter)) -2rem; padding: 1rem var(--gutter) 2rem; /* room for the Refresh card's glow inside the swipe row */
+        margin: -1rem calc(-1 * var(--gutter)) -2rem; padding: 1rem var(--gutter) 2rem; /* room around the cards inside the swipe row */
         overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; /* only sideways scrolling here, so up-and-down swipes still scroll the page */ scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter);
         scrollbar-width: none;
       }
@@ -1189,7 +1180,7 @@
     <div class="compare fade-up">
       <div>
         <h3 class="compare-title">Why a monthly plan beats a big upfront bill</h3>
-        <p class="compare-sub">A typical website means paying for the build upfront, then paying extra for hosting and changes. We roll it all into one simple monthly plan.</p>
+        <p class="compare-sub">We roll it all into one simple monthly plan, so you skip the big upfront bill and never pay extra for hosting or changes.</p>
       </div>
       <table class="ct">
         <thead>
@@ -1431,7 +1422,7 @@
           <li>Up to 5 pages</li>
           <li>Mobile-optimised</li>
           <li>Hosting &amp; SSL included</li>
-          <li>SEO foundations</li>
+          <li>SEO optimised</li>
           <li>2 content updates per month</li>
         </ul>
         <a href="#contact" class="pricing-cta">Get started</a>
@@ -1446,7 +1437,7 @@
           <li>Up to 5 pages</li>
           <li>Mobile-optimised</li>
           <li>Hosting &amp; SSL included</li>
-          <li>SEO foundations</li>
+          <li>SEO optimised</li>
           <li>2 content updates per month</li>
         </ul>
         <a href="#contact" class="pricing-cta">Get started</a>
@@ -1475,8 +1466,6 @@
   <div class="faq-inner">
     <div class="faq-intro fade-up">
       <h2 class="section-title">Have some questions?</h2>
-      <p class="section-sub">Still not sure about something? Book a free 20-minute call and ask us directly.</p>
-      <a href="#contact" class="text-link">Book a call</a>
     </div>
     <div class="faq-list fade-up">
       <div class="faq-item">
@@ -1512,11 +1501,6 @@
     <div class="contact-intro fade-up">
       <h2 class="section-title">Book your free<br>20-minute call</h2>
       <p class="section-sub">Tell us a bit about your business and we'll be in touch to arrange a quick call. No commitment required.</p>
-      <ul class="tick-list">
-        <li>A relaxed chat, with no pressure</li>
-        <li>New website or a refresh, we'll talk through what you need</li>
-        <li>$0 upfront, whichever plan you choose</li>
-      </ul>
     </div>
     <form class="contact-form fade-up" id="contact-form" method="POST" action="https://midsomer-forms.victoria-292.workers.dev/?site=midsomer-design">
       <div class="form-hp" aria-hidden="true"><label for="cf-company">Company website</label><input id="cf-company" name="company_website" type="text" tabindex="-1" autocomplete="off"></div>
