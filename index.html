@@ -607,9 +607,6 @@
     /* PRICING */
     .pricing { background: var(--cream); }
     .pricing-inner { max-width: 1160px; margin: 0 auto; }
-    .tick-list { list-style: none; margin-bottom: 2rem; border-top: 1px solid var(--line); }
-    .tick-list li { display: flex; align-items: baseline; gap: 0.8rem; padding: 0.95rem 0; border-bottom: 1px solid var(--line); font-size: 0.95rem; line-height: 1.5; color: var(--ink); }
-    .tick-list li::before { content: ''; flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--accent-bright); transform: translateY(-2px); }
     .pricing-grid { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; align-items: stretch; }
     .pricing-card {
       position: relative; display: flex; flex-direction: column;
@@ -683,10 +680,6 @@
         linear-gradient(180deg, var(--night-2) 0%, var(--night) 100%);
     }
     .contact-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 0.95fr 1.05fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: center; }
-    .contact .section-sub { margin-bottom: 2.2rem; }
-    .contact .tick-list { margin-bottom: 0; border-top-color: rgba(255,255,255,0.12); }
-    .contact .tick-list li { color: rgba(255,255,255,0.86); border-bottom-color: rgba(255,255,255,0.12); }
-    .contact .tick-list li::before { background: var(--mint); }
     .contact-form { padding: clamp(1.6rem, 4vw, 2.6rem); border-radius: var(--r-lg); background: var(--cream); color: var(--ink); box-shadow: 0 40px 100px rgba(0,0,0,0.45); }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
     .form-group { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.1rem; }
@@ -1429,7 +1422,7 @@
           <li>Up to 5 pages</li>
           <li>Mobile-optimised</li>
           <li>Hosting &amp; SSL included</li>
-          <li>SEO foundations</li>
+          <li>SEO optimised</li>
           <li>2 content updates per month</li>
         </ul>
         <a href="#contact" class="pricing-cta">Get started</a>
@@ -1444,7 +1437,7 @@
           <li>Up to 5 pages</li>
           <li>Mobile-optimised</li>
           <li>Hosting &amp; SSL included</li>
-          <li>SEO foundations</li>
+          <li>SEO optimised</li>
           <li>2 content updates per month</li>
         </ul>
         <a href="#contact" class="pricing-cta">Get started</a>
@@ -1510,11 +1503,6 @@
     <div class="contact-intro fade-up">
       <h2 class="section-title">Book your free<br>20-minute call</h2>
       <p class="section-sub">Tell us a bit about your business and we'll be in touch to arrange a quick call. No commitment required.</p>
-      <ul class="tick-list">
-        <li>A relaxed chat, with no pressure</li>
-        <li>New website or a refresh, we'll talk through what you need</li>
-        <li>$0 upfront, whichever plan you choose</li>
-      </ul>
     </div>
     <form class="contact-form fade-up" id="contact-form" method="POST" action="https://midsomer-forms.victoria-292.workers.dev/?site=midsomer-design">
       <div class="form-hp" aria-hidden="true"><label for="cf-company">Company website</label><input id="cf-company" name="company_website" type="text" tabindex="-1" autocomplete="off"></div>
